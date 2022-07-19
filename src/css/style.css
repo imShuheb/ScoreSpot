@@ -1,0 +1,230 @@
+/* Importing fonts from Google */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+* {
+  font-family: "Poppins";
+}
+
+#success_message {
+  display: none;
+}
+
+.tick li {
+  list-style: none;
+}
+
+.tick li:before {
+  content: "✓ - ";
+}
+.color {
+  color: #ffffff;
+  font-size: large;
+}
+.max {
+  height:1250px;
+  filter: blur(3px);
+  -webkit-filter: blur(2px);
+  max-height: 610px;
+}
+.black {
+  padding: 0.2in;
+  background-color: #e03232;
+  border-radius: 0.6in;
+}
+
+/* Reseting */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+  max-width: 350px;
+  min-height: 500px;
+  margin: 80px auto;
+  padding: 40px 30px 30px 30px;
+  background-color: #ecf0f3;
+  border-radius: 15px;
+  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+}
+
+.logo {
+  width: 80px;
+  margin: auto;
+}
+
+.logo img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px #5f5f5f, 0px 0px 0px 5px #ecf0f3, 8px 8px 15px #a7aaa7,
+    -8px -8px 15px #fff;
+}
+
+.wrapper .name {
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 1.3px;
+  padding-left: 10px;
+  color: #555;
+}
+
+.wrapper .form-field input {
+  width: 100%;
+  display: block;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 10px 15px 10px 10px;
+  /* border: 1px solid red; */
+}
+
+.wrapper .form-field {
+  padding-left: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+
+.wrapper .form-field .fas {
+  color: #555;
+}
+
+.wrapper .btn {
+  box-shadow: none;
+  width: 100%;
+  height: 40px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
+  letter-spacing: 1.3px;
+}
+
+.wrapper .btn:hover {
+  background-color: #db3535;
+  color: white;
+}
+
+.wrapper a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #03a9f4;
+}
+
+.wrapper a:hover {
+  color: #039be5;
+}
+
+@media (max-width: 380px) {
+  .wrapper {
+    margin: 30px 20px;
+    padding: 40px 15px 15px 15px;
+  }
+}
+
+/* register */
+
+.card-img-left {
+  width: 45%;
+  background: scroll center
+    url("https://source.unsplash.com/WEQbe2jBg40/414x512");
+  background-size: cover;
+  background-position: left;
+}
+.form-floating input {
+  /* border-radius: .2in; */
+  border: 0px solid transparent;
+  border-bottom: 2px solid #ca1c1c;
+  /* padding: 1em .5em .5em; */
+  padding-left: 2em;
+  outline: none;
+  /* margin:1.5em auto; */
+  transition: all 0.5s ease;
+}
+.form-floating textarea {
+  border: 0px solid transparent;
+  border-bottom: 2px solid #ca1c1c;
+  padding-left: 2em;
+  outline: none;
+  transition: all 0.5s ease;
+}
+
+.d-grid button {
+  border-radius: 1in;
+}
+.card-body img {
+  width: auto;
+  height: 1in;
+}
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+/* profil page */
+.fontuser i{
+  position: absolute;
+  left: 15px;
+  top: 40px;
+  color: gray;
+}
+
+.u
+{
+text-decoration: underline;
+text-decoration-color: #000000;
+}
+
+.btn-submit{
+  width: 150px;
+  height: 5vh;
+  background-color: #ca1c1c;
+}
+.wid-icon{
+  width: 2vw;
+  height: auto;
+}
+.boarder{
+  border: 1px solid black;
+  border-radius: 20px;
+  padding-left: .3in;
+  padding-right: .3in;
+  padding-top: .3in;
+  padding-bottom: 0in;
+}
+
+.input-icons i {
+  position: absolute;
+}
+
+.input-icons {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+#roll-fet{
+  margin-top: 80px;
+  height: 100vh;
+}
+
+.cont{
+  margin-top: 80px;
+  height: 100vh;
+}

@@ -1,0 +1,2 @@
+# ScoreSpot
+Repository to ScoreSpot

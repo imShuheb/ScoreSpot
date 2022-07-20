@@ -1,10 +1,9 @@
 import userContext from "./userContext";
 
 const Teams = (props) => {
-    let name = "shuheb"
 
     return (
-        <userContext.Provider value={{ name }}>
+        <userContext.Provider value={{  }}>
             {props.children}
         </userContext.Provider>
     )

@@ -22,10 +22,10 @@ body{
 
 .side .sidebar{
   width: 86px;
-  height: 51vh;
+  height: 50vh;
   background: #db3535;
   border-radius: 20px;
-  padding: 40px 0px;
+  padding: 35px 0px;
   text-align: center;
   font-size: small;
   position: fixed;
@@ -60,7 +60,7 @@ body{
 }
 
 .side .sidebar ul li:hover{
-  background-color: rgb(192, 192, 192);
+  background-color: #ac1818;
   border-radius: 20px;
 }
     

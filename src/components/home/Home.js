@@ -17,22 +17,27 @@ function Home() {
       history('/login')
     }, [])
   }
+  useEffect(() => {
+    context.Profile();
+    list.Players();
+    // eslint-disable-next-line
+  }, [])
 
   if (!sessionStorage.getItem('token')) {
     return Ret();
   } else {
-    context.Profile();
-    list.Players();
+
+
     return (
       <>
         <HomeNav />
         <div className="side">
-          <SideNav/>
+          <SideNav />
           <div className="main_content">
             <div className="info" >
-              <div className="container scroll" style={{marginTop:"45px"}}>
+              <div className="container scroll" style={{ marginTop: "45px" }}>
                 <div className="row">
-                  <div className="col-sm-6">
+                  <div className="col-sm-6 p-2">
                     <div className="card bg-light mb-3" style={{ maxWidth: "26rem" }}>
                       <div className="card-header">Match Type</div>
                       <div className="card-body">
@@ -44,7 +49,7 @@ function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-sm-6">
+                  <div className="col-sm-6 p-2">
                     <div className="card bg-light mb-3" style={{ maxWidth: "26rem" }}>
                       <div className="card-header">Match Type</div>
                       <div className="card-body">
@@ -55,7 +60,7 @@ function Home() {
                         <div className='text-center p-0'>schedule timing</div>
                       </div>
                     </div>
-                  </div><div className="col-sm-6">
+                  </div><div className="col-sm-6 p-2">
                     <div className="card bg-light mb-3" style={{ maxWidth: "26rem" }}>
                       <div className="card-header">Match Type</div>
                       <div className="card-body">
@@ -66,7 +71,7 @@ function Home() {
                         <div className='text-center p-0'>schedule timing</div>
                       </div>
                     </div>
-                  </div><div className="col-sm-6">
+                  </div><div className="col-sm-6 p-2">
                     <div className="card bg-light mb-3" style={{ maxWidth: "26rem" }}>
                       <div className="card-header">Match Type</div>
                       <div className="card-body">
@@ -77,7 +82,7 @@ function Home() {
                         <div className='text-center p-0'>schedule timing</div>
                       </div>
                     </div>
-                  </div><div className="col-sm-6">
+                  </div><div className="col-sm-6 p-2">
                     <div className="card bg-light mb-3" style={{ maxWidth: "26rem" }}>
                       <div className="card-header">Match Type</div>
                       <div className="card-body">
@@ -89,9 +94,7 @@ function Home() {
                       </div>
                     </div>
                   </div>
-
                 </div>
-
               </div>
             </div>
           </div>

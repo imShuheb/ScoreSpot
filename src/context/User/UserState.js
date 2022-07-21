@@ -1,5 +1,5 @@
 import userContext from "./userContext";
-import { useState,useEffect } from 'react'
+import { useState } from 'react'
 
 const Teams = (props) => {
     const host = "http://localhost:5000";
@@ -17,9 +17,10 @@ const Teams = (props) => {
         });
 
         const pdata = await response.json();
-        setData(pdata);
-
+        // console.log(pdata)
+        await setData(pdata);
     }
+   
 
     return (
         <userContext.Provider value={{Data,Players }}>

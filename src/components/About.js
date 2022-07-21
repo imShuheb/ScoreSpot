@@ -6,12 +6,12 @@ export default function About() {
         <>
             <div className="container-fulid cont mb-5" id="roll">
                 <div className="container-fulid  pt-lg-0 " >
-                    <div className="container">
-                        <div className="row g-5">
+                    <div className="container my-5">
+                        <div className="row g-5" >
                             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="position-relative overflow-hidden ps-5 pt-5 h-100" style={{ minHeight: "400px" }}>
-                                    <img class="position-absolute w-100 h-100" src={back} alt="" style={{ objectFit: "cover" }} />
-                                    <img class="position-absolute top-0 start-0 bg-white pe-3 pb-3" src={back} alt="" style={{ width: "200px", height: "200px" }} />
+                                    <img class="position-absolute w-75 h-100 my-5" src={back} alt="" style={{ objectFit: "cover" }} />
+                                    <img class="position-absolute top-0 start-0 bg-white my-5 pe-3 pb-3" src={back} alt="" style={{ width: "200px", height: "200px" }} />
                                 </div>
                             </div>
 

@@ -22,7 +22,7 @@ body{
 
 .side .sidebar{
   width: 86px;
-  height: 50vh;
+  height: 59vh;
   background: #db3535;
   border-radius: 20px;
   padding: 35px 0px;
@@ -65,6 +65,9 @@ body{
     
 .side .sidebar ul li:hover a{
   color: #fff;
+}
+.wid{
+  font-size:smaller
 }
  
 
@@ -216,6 +219,17 @@ body{margin-top:20px;
   /* CreateTeam css */
 
 .width{
-  margin-left: 10vw;
-  width: 350px;
+  margin-top: 50px;
+  margin-left: 8vw;
+  height: 83vh;
 }
+
+.search{
+  /* width:26vw; */
+  position: sticky;
+  height: 40px;
+  border-radius: 30px;
+  border:3px solid #db3535;
+  text-align: center;
+}
+

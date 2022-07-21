@@ -25,7 +25,6 @@ function Home() {
         <HomeNav />
         <div className="side">
           <SideNav/>
-
           <div className="main_content">
             <div className="info" >
               <div className="container scroll" style={{marginTop:"45px"}}>

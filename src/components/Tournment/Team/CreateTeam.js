@@ -1,15 +1,15 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import HomeNav from '../../Navbars/HomeNav'
-import userContext from '../../../context/User/userContext'
 import SideNav from '../../Navbars/SideNav'
-
+import Players from './Players'
 const CreateTeam = () => {
-  const context = useContext(userContext)
   return (
     <>
       <HomeNav />
       <SideNav />
-      
+      <div className="width scroll my-5">
+        <Players />
+      </div>
     </>
   )
 }

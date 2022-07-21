@@ -34,7 +34,6 @@ body{
 
 .side .sidebar h2{
   color: #fff;
-  text-transform: uppercase;
   text-decoration: underline;
   text-align: center;
   font-size: small;
@@ -212,3 +211,11 @@ body{margin-top:20px;
       margin-left: 1rem;
       margin-right: 1rem;
   }
+
+
+  /* CreateTeam css */
+
+.width{
+  margin-left: 10vw;
+  width: 32vw;
+}

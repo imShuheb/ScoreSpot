@@ -123,4 +123,16 @@ router.post('/userdata', fetchuser, async (req, res) => {
     }
 })
 
+// ROUTE TO FETCH DATA USING TOCKEN /api/auth/userdata
+router.post('/userlist', async (req, res) => {
+    try {
+       const user = await User.find({});
+       res.send(user);   
+    }
+    catch (error) {
+        console.log(error)
+        res.status(500).send("Internal server error occured")
+    }
+})
+
 module.exports = router 

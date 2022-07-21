@@ -6,9 +6,8 @@ const SideNav = () => {
     return (
         <>
             <div className="side">
-
                 <div className="sidebar justify-content-center ">
-                    <h2>Welcome</h2>
+                    <h2>ScoreSpot</h2>
                     <ul style={{ paddingLeft: "0%" }}>
                         <li ><Link to="/home" ><i className={`fas fa-address-book`}></i>Home</Link></li>
                         <li><Link to="/teams"><i className="fas fa-home"></i>Teams</Link></li>

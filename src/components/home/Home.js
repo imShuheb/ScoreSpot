@@ -3,12 +3,14 @@ import '../../css/styles_home.css'
 import News from "./News"
 import HomeNav from '../Navbars/HomeNav'
 import profileContext from '../../context/Profile/profileContext'
+import UserContext from '../../context/User/userContext'
 import { useNavigate } from 'react-router-dom'
 import SideNav from '../Navbars/SideNav'
 
 function Home() {
   const history = useNavigate();
   const context = useContext(profileContext);
+  const list = useContext(UserContext);
 
   const Ret = () => {
     useEffect(() => {
@@ -20,6 +22,7 @@ function Home() {
     return Ret();
   } else {
     context.Profile();
+    list.Players();
     return (
       <>
         <HomeNav />

@@ -21,12 +21,8 @@ const Teams = (props) => {
 
     }
 
-    useEffect(() => {
-      Players();
-    }, [])
-    
     return (
-        <userContext.Provider value={{Data }}>
+        <userContext.Provider value={{Data,Players }}>
             {props.children}
         </userContext.Provider>
     )

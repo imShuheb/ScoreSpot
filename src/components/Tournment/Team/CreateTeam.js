@@ -8,7 +8,7 @@ const CreateTeam = () => {
       <HomeNav />
       <SideNav />
       <div className="row">
-        <div className="col-sm-5">
+        <div className="col-sm-4">
           <div className="width scroll " style={{ position: "absolate" }}>
             <Players />
           </div>

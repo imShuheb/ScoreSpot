@@ -225,7 +225,7 @@ body{margin-top:20px;
 }
 
 .search{
-  /* width:26vw; */
+  width:20vw;
   position: sticky;
   height: 40px;
   border-radius: 30px;

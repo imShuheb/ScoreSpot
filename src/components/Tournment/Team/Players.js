@@ -19,10 +19,11 @@ const Players = () => {
                 return alert("Player already exists")
             } else {
                 setlist([...list, mess])
+                context.setPlayers(list)
             }
         }
     }
-
+    console.log(list)
     const write = () => {
         document.write("Refresh Page")
 

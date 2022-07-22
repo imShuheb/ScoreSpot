@@ -6,6 +6,7 @@ const User = require('../models/User');
 
 
 
+
 //Route 1 : get user data dashboard : GET "localhost/api/fetchuser"
 router.get('/fetchuser', fetchuser, async (req, res) => {
     try {

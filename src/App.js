@@ -6,7 +6,7 @@ import Home from "./components/home/Home";
 import MyProfile from "./components/home/MyProfile";
 import Login from "./components/Login";
 import ProfileState from "./context/Profile/ProfileState";
-import Teams from "./context/User/UserState";
+import TeamsState from "./context/User/UserState";
 import CreateTeam from './components/Tournment/Team/CreateTeam'
 
 
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <ProfileState>
-        <Teams>
+        <TeamsState>
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Main />} />
@@ -26,7 +26,7 @@ function App() {
               <Route path="/myProfile" element={<MyProfile />} />
             </Routes>
           </BrowserRouter>
-        </Teams>
+        </TeamsState>
       </ProfileState>
     </>
   );

@@ -6,7 +6,8 @@ const Teams = (props) => {
 
     const second = ""
     const [Data, setData] = useState(second);
-
+    const [playersdata,setPlayers] = useState('')
+    
     const Players = async () => {
         const url = `${host}/api/auth/userlist`;
         const response = await fetch(url, {
@@ -15,15 +16,12 @@ const Teams = (props) => {
                 'Accept': 'application/json'
             },
         });
-
         const pdata = await response.json();
-        // console.log(pdata)
         await setData(pdata);
     }
-   
 
     return (
-        <userContext.Provider value={{Data,Players }}>
+        <userContext.Provider value={{Data,Players,setPlayers,playersdata }}>
             {props.children}
         </userContext.Provider>
     )

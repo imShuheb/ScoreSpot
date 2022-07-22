@@ -14,7 +14,7 @@ function Register() {
             alert('Password Mismatch');
             return  history("/reg");
         }
-        const { name, email, password } = credentials
+        const { name, password } = credentials
         const response = await fetch("http://localhost:5000/api/auth/reg", {
             method: 'POST',
             headers: {
@@ -72,7 +72,6 @@ function Register() {
                                         <button className="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Register</button>
                                     </div>
                                     <Link className="d-block text-center mt-2 small" to='/'>Have an account? Login In</Link>
-                                    {/* <hr className="my-4" /> */}
                                 </form>
                             </div>
                         </div>
@@ -80,33 +79,6 @@ function Register() {
                 </div>
             </div>
         </div>
-        // <div>
-        //     <div id='roll-log'>
-        //         <div className="wrapper my-5" >
-        //             <div className="logo" >
-        //                 <img src={logo} alt="IMgscc" />
-        //             </div>
-        //             <div className="text-center mt-4 name">
-        //                 sCorespot
-        //             </div>
-        //             <form className="p-3 mt-3" mode='POST' onSubmit={handleSubmit}>
-        //                 <div className="form-field d-flex align-items-center" >
-        //                     <span className="far fa-user"></span>
-        //                     <input type="text" name="email" id="email " value={credentials.email} onChange={onChange} placeholder="Username" />
-        //                 </div>
-
-        //                 <div className="form-field d-flex align-items-center">
-        //                     <span className="fas fa-key"></span>
-        //                     <input type="password" name="password" value={credentials.password} onChange={onChange} id="pass" placeholder="Password" />
-        //                 </div>
-        //                 <button type="submit" className='btn mt-3'>Login</button>
-        //             </form>
-        //             <div className="text-center fs-6">
-        //                 <Link className="d-block text-center mt-2 small" to='/'>Have an account? Login In</Link>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
     )
 }
 

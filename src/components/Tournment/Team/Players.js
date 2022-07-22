@@ -12,16 +12,21 @@ const Players = () => {
     const [searchTerm, setSearchTerm] = useState('')
 
     const handleSide = (event, mess) => {
-        setlist([...list, mess])
-        console.log(list)
+        if (list.length>11) {
+            return alert("cannot insert more thn 12 players")
+        }else{
+           if(list.includes(mess)){
+            return alert("Player already exists")
+           }else{
+               setlist([...list, mess])
+               console.log(list)
+            }
+        }
     }
 
     const write = () => {
-        return (
-            <div>hi</div>
-        )
+       document.write("Refresh Page")
     }
-
 
     return (
         <>

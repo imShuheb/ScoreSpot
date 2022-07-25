@@ -123,7 +123,7 @@ router.post('/userdata', fetchuser, async (req, res) => {
     }
 })
 
-// ROUTE TO FETCH DATA USING TOCKEN /api/auth/userdata
+// ROUTE TO FETCH ALL DATA  /api/auth/userdata
 router.post('/userlist', async (req, res) => {
     try {
        const user = await User.find({});

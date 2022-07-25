@@ -1,29 +1,28 @@
 import React, { useContext, useState } from 'react'
 import userContext from '../../../context/User/userContext'
 
-
 const Players = () => {
 
     const context = useContext(userContext)
-    const data = context.Data;
-    const player = []
-
-    const [list, setlist] = useState(player);
     const [searchTerm, setSearchTerm] = useState('')
 
+    const data = context.Data;
+    const player = context.playersdata
+
+    
     const handleSide = (event, mess) => {
-        if (list.length > 11) {
-            return alert("cannot insert more thn 12 players")
+        if (player.length > 11) {
+            return alert("Cannot have more than 12 Team mates")
         } else {
-            if (list.includes(mess)) {
+            if (player.includes(mess)) {
                 return alert("Player already exists")
             } else {
-                setlist([...list, mess])
-                context.setPlayers(list)
+                context.setPlayers([...player, mess])
+                // context.setPlayers(list)
             }
         }
     }
-    console.log(list)
+
     const write = () => {
         document.write("Refresh Page")
 
@@ -39,15 +38,16 @@ const Players = () => {
                 ? data.filter((val) => {
                     if (searchTerm === "") {
                         return val;
-                    } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    } else if (val.fname.toLowerCase().includes(searchTerm.toLowerCase())) {
                         return val;
-                    }
+                    } 
+                    
                 }).map(ele => {
                     return (
                         <div className="container my-3 card-size" key={ele._id}>
                             <div className="card mx-4">
                                 <div className="card-body d-flex justify-content-between">
-                                    <strong className="card-title text-uppercase">{ele.name}  </strong>
+                                    <strong className="card-title text-uppercase">{ele.fname} {ele.lname}  </strong>
                                     <button onClick={event => handleSide(event, ele)} className="btn btn-outline-danger ">+</button>
                                 </div>
                             </div>

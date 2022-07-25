@@ -8,6 +8,7 @@ const User = require('../models/User');
 
 
 //Route 1 : get user data dashboard : GET "localhost/api/fetchuser"
+
 router.get('/fetchuser', fetchuser, async (req, res) => {
     try {
         const profile = await Profile.findOne({ user: req.users.id });
@@ -18,6 +19,18 @@ router.get('/fetchuser', fetchuser, async (req, res) => {
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error");
+    }
+})
+
+// fetch all profiles
+router.post('/userlist', async (req, res) => {
+    try {
+       const profile = await Profile.find({});
+       res.status(200).send(profile);   
+    }
+    catch (error) {
+        console.log(error)
+        res.status(500).send("Internal server error occured")
     }
 })
 

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fetchuser = require('../middleware/fetchuser');
 const Profile = require('../models/profile');
-const User = require('../models/User');
+// const User = require('../models/User');
 const Teams = require('../models/Teams');
 
 
@@ -21,11 +21,13 @@ router.get('/players/fetchteams', fetchuser, async (req, res) => {
 
 router.post('/players', fetchuser, async (req, res) => {
     try {
-        const { data } = req.body
+        const { data, name } = req.body
+        const teams = await Teams.findOne({ tname:name })
+
         // const string = JSON.stringify(data);
         // console.log(string)
         const profile = new Teams({
-            user: req.users.id, data
+            user: req.users.id, data, name
         })
 
         const saveProfile = await profile.save()

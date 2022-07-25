@@ -1,15 +1,15 @@
 import userContext from "./userContext";
 import { useState } from 'react'
 
-const Teams = (props) => {
+const Users = (props) => {
     const host = "http://localhost:5000";
 
     const second = ""
     const [Data, setData] = useState(second);
-    const [playersdata,setPlayers] = useState('')
-    
+    const [playersdata, setPlayers] = useState(second)
+
     const Players = async () => {
-        const url = `${host}/api/auth/userlist`;
+        const url = `${host}/api/userlist`;
         const response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -17,14 +17,30 @@ const Teams = (props) => {
             },
         });
         const pdata = await response.json();
-        await setData(pdata);
+        setData(pdata);
+
     }
+    console.log(Data)
+    // edit profile section
+    const addTeam = async (data,name) => {
+        // API Call 
+        await fetch(`${host}/teams/players`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "auth-token": sessionStorage.getItem('token')
+            },
+            body: JSON.stringify({ name,data })
+        });
+
+    }
+    // end edit profile section
 
     return (
-        <userContext.Provider value={{Data,Players,setPlayers,playersdata }}>
+        <userContext.Provider value={{ Data, Players, setPlayers, addTeam, playersdata }}>
             {props.children}
         </userContext.Provider>
     )
 }
 
-export default Teams;
+export default Users;

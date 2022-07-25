@@ -9,6 +9,11 @@ const TeamSchema = new Schema({
     },
     data :{
         type : Array
+    },
+    tname :{
+        type : String,
+        required : true,
+        unique : true
     }
 })
 const User = mongoose.model('Teams',TeamSchema);

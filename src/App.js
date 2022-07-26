@@ -9,7 +9,6 @@ import ProfileState from "./context/Profile/ProfileState";
 import TeamsState from "./context/User/UserState";
 import CreateTeam from './components/Tournment/Team/CreateTeam'
 
-FCKNIZAM
 
 function App() {
   return (

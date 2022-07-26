@@ -20,11 +20,10 @@ const Users = (props) => {
         setData(pdata);
 
     }
-    console.log(Data)
     // edit profile section
     const addTeam = async (data,name) => {
         // API Call 
-        await fetch(`${host}/teams/players`, {
+        const response =  await fetch(`${host}/teams/players`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,7 +31,9 @@ const Users = (props) => {
             },
             body: JSON.stringify({ name,data })
         });
-
+        const res = await response.json();
+        const err = res.error
+        if(err){ alert(err)}
     }
     // end edit profile section
 

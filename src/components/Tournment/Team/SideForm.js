@@ -20,7 +20,7 @@ const SideForm = () => {
 
             {Array.isArray(players)
                 // eslint-disable-next-line
-                ? context.playersdata.map(ele => {
+                ? players.map(ele => {
                     return (
 
                         <div className="col-sm-3">

@@ -6,20 +6,19 @@ const Players = () => {
 
     const context = useContext(userContext)
     const data = context.Data;
-    const player = []
-
-    const [list, setlist] = useState(player);
+    const player = context.playersdata
+    // const [list, setlist] = useState(player);
     const [searchTerm, setSearchTerm] = useState('')
 
     const handleSide = (event, mess) => {
-        if (list.length > 11) {
+        if (player.length > 11) {
             return alert("cannot insert more thn 12 players")
         } else {
-            if (list.includes(mess)) {
+            if (player.includes(mess)) {
                 return alert("Player already exists")
             } else {
-                setlist([...list, mess])
-                console.log(list)
+                context.setPlayers([...player, mess])
+                console.log(player)
             }
         }
     }
@@ -46,8 +45,8 @@ const Players = () => {
                         <div className="container my-3 card-size" key={ele._id}>
                             <div className="card mx-4">
                                 <div className="card-body d-flex justify-content-between">
-                                    <strong className="card-title text-uppercase">{ele.name}  </strong>
-                                    <button onClick={event => handleSide(event, ele._id)} className="btn btn-outline-danger ">+</button>
+                                    <strong className="card-title text-uppercase">{ele.fname} {ele.lname}  </strong>
+                                    <button onClick={event => handleSide(event, ele)} className="btn btn-outline-danger ">+</button>
                                 </div>
                             </div>
                         </div>

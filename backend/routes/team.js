@@ -22,8 +22,11 @@ router.get('/players/fetchteams', fetchuser, async (req, res) => {
 router.post('/players', fetchuser, async (req, res) => {
     try {
         const { data, name } = req.body
-        const teams = await Teams.findOne({ tname:name })
-
+        const teams = await Teams.findOne({ name: name })
+        if (teams) {
+            const error = "Player already exist"
+            return res.status(200).json({ error })
+        }
         // const string = JSON.stringify(data);
         // console.log(string)
         const profile = new Teams({
@@ -40,6 +43,9 @@ router.post('/players', fetchuser, async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
+
+
+
 
 module.exports = router
 

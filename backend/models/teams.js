@@ -10,9 +10,8 @@ const TeamSchema = new Schema({
     data :{
         type : Array
     },
-    tname :{
+    name :{
         type : String,
-        required : true,
         unique : true
     }
 })

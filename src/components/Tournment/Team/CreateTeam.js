@@ -10,8 +10,22 @@ const CreateTeam = () => {
 
   const handleCreate = (e) => {
     e.preventDefault();
-    const teamname = document.getElementById('teamname')
-    context.addTeam(context.playersdata, teamname)
+    const teamname = document.getElementById('teamname').value
+    const dat = context.playersdata
+    console.log(dat.length)
+    if (dat.length < 11) {
+      return alert('Team should have 11 players')
+
+    } else if (teamname === '') {
+      return alert("ENTER TEAM NAME")
+
+    } else {
+      context.addTeam(context.playersdata, teamname)
+    }
+  }
+  const handleclear = (e) => {
+    e.preventDefault();
+    context.setPlayers('')
   }
 
   return (
@@ -26,8 +40,8 @@ const CreateTeam = () => {
         </div>
         <div className="col-sm-8">
           <div className="container sideform-size red-bar">
-            <button className='btn btn-danger b-s mb-3' onClick={handleCreate}>
-              <strong>Create Team</strong> <i class="fa-solid fa-user-plus"></i>
+            <button className='btn btn-danger b-s mb-3' onClick={handleclear}>
+              <strong>Clear All</strong> <i class="fa-solid fa-trash mx-2"></i>
             </button>
             <div className="row ">
               <SideForm />

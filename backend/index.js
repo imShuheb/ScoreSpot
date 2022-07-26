@@ -12,7 +12,7 @@ app.use(express.json())
 
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api', require('./routes/profile'))
-
+app.use('/teams', require('./routes/team'))
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`)

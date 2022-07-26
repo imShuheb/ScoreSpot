@@ -35,7 +35,7 @@ function Home() {
           <SideNav />
           <div className="main_content">
             <div className="info" >
-              <div className="container scroll" style={{ marginTop: "45px" }}>
+              <div className="container scroll red-bar" style={{ marginTop: "45px" }}>
                 <div className="row">
                   <div className="col-sm-6 p-2">
                     <div className="card bg-light mb-3" style={{ maxWidth: "26rem" }}>

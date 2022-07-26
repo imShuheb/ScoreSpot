@@ -12,20 +12,20 @@ const Players = () => {
     const [searchTerm, setSearchTerm] = useState('')
 
     const handleSide = (event, mess) => {
-        if (list.length>11) {
+        if (list.length > 11) {
             return alert("cannot insert more thn 12 players")
-        }else{
-           if(list.includes(mess)){
-            return alert("Player already exists")
-           }else{
-               setlist([...list, mess])
-               console.log(list)
+        } else {
+            if (list.includes(mess)) {
+                return alert("Player already exists")
+            } else {
+                setlist([...list, mess])
+                console.log(list)
             }
         }
     }
 
     const write = () => {
-       document.write("Refresh Page")
+        document.write("Refresh Page")
     }
 
     return (
@@ -33,24 +33,26 @@ const Players = () => {
             <center>
                 <input type="text" placeholder='Search' className='search' onChange={(event) => { setSearchTerm(event.target.value) }} />
             </center>
-            {Array.isArray(data) ? data.filter((val) => {
-                if (searchTerm === " ") {
-                    return val;
-                } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                    return val;
-                }
-            }).map(ele => {
-                return (
-                    <div className="container my-3 card-size" key={ele._id}>
-                        <div className="card mx-4">
-                            <div className="card-body d-flex justify-content-between">
-                                <strong className="card-title text-uppercase">{ele.name}  </strong>
-                                <button onClick={event => handleSide(event, ele._id)} className="btn btn-outline-danger ">+</button>
+            {Array.isArray(data)
+                // eslint-disable-next-line 
+                ? data.filter((val) => {
+                    if (searchTerm === " ") {
+                        return val;
+                    } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return val;
+                    }
+                }).map(ele => {
+                    return (
+                        <div className="container my-3 card-size" key={ele._id}>
+                            <div className="card mx-4">
+                                <div className="card-body d-flex justify-content-between">
+                                    <strong className="card-title text-uppercase">{ele.name}  </strong>
+                                    <button onClick={event => handleSide(event, ele._id)} className="btn btn-outline-danger ">+</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )
-            }) : write}
+                    )
+                }) : write}
 
         </>
     )

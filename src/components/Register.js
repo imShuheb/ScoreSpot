@@ -4,7 +4,6 @@ import logo from '../images/logo.png'
 import { Link } from 'react-router-dom'
 
 function Register() {
-    // const [show,setshow] = useState(true);
     const [credentials, setCredentials] = useState({ email: "", password: "", name: "", cpassword: ""})
     let history = useNavigate();
 
@@ -25,7 +24,6 @@ function Register() {
 
         const json = await response.json()
         if (json.success === "true") {
-            // Save the auth token and redirect
             sessionStorage.setItem('token',json.Tocken);
             history("/profile");
         }

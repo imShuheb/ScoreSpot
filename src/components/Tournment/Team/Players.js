@@ -7,18 +7,16 @@ const Players = () => {
     const context = useContext(userContext)
     const data = context.Data;
     const player = context.playersdata
-    // const [list, setlist] = useState(player);
     const [searchTerm, setSearchTerm] = useState('')
 
     const handleSide = (event, mess) => {
-        if (player.length > 11) {
-            return alert("cannot insert more thn 12 players")
+        if (player.length > 10) {
+            return alert("Cannot Have More Than 11 Players")
         } else {
             if (player.includes(mess)) {
                 return alert("Player already exists")
             } else {
                 context.setPlayers([...player, mess])
-                console.log(player)
             }
         }
     }

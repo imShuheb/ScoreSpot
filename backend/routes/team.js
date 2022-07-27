@@ -44,6 +44,16 @@ router.post('/players', fetchuser, async (req, res) => {
     }
 });
 
+router.post('/teamlist', async (req, res) => {
+    try {
+        const teams = await Teams.find({});
+        res.status(200).json(teams);
+    }
+    catch (error) {
+        console.log(error)
+        res.status(500).send("Internal server error occured")
+    }
+})
 
 
 

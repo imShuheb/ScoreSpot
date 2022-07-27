@@ -22,7 +22,7 @@ body {
 
 .side .sidebar {
   width: 90px;
-  height: 59vh;
+  height: 60vh;
   background: #db3535;
   border-radius: 20px;
   padding: 35px 0px;
@@ -67,7 +67,7 @@ body {
   color: #fff;
 }
 .wid {
-  font-size: smaller;
+  font-size: 11px;
 }
 
 /* news section right */

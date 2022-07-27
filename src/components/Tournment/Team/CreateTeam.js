@@ -12,7 +12,6 @@ const CreateTeam = () => {
     e.preventDefault();
     const teamname = document.getElementById('teamname').value
     const dat = context.playersdata
-    console.log(dat.length)
     if (dat.length < 11) {
       return alert('Team should have 11 players')
 
@@ -31,7 +30,9 @@ const CreateTeam = () => {
   return (
     <div className='overflow'>
       <HomeNav />
-      <SideNav />
+     <div className='mx-3'>
+       <SideNav />
+      </div>
       <div className="row ">
         <div className="col-sm-4">
           <div className="width scroll red-bar " style={{ position: "absolate" }}>

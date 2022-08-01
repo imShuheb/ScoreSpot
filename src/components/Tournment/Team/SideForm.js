@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import userContext from '../../../context/User/userContext'
+import bg from "../../../images/bg.jpg"
 
 const SideForm = () => {
     const context = useContext(userContext)
@@ -17,6 +18,7 @@ const SideForm = () => {
 
     return (
         <>
+            <img src={bg} alt="-" style={{ height: "74vh", width: "65vw",position:"absolute" }} />
 
             {Array.isArray(players)
                 // eslint-disable-next-line

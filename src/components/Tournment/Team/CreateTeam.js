@@ -12,6 +12,7 @@ const CreateTeam = () => {
     e.preventDefault();
     const teamname = document.getElementById('teamname').value
     const dat = context.playersdata
+    
     if (dat.length < 11) {
       return alert('Team should have 11 players')
 
@@ -40,10 +41,12 @@ const CreateTeam = () => {
           </div>
         </div>
         <div className="col-sm-8">
-          <div className="container sideform-size red-bar">
-            <button className='btn btn-danger b-s mb-3' onClick={handleclear}>
+          <div className="containersideform-size red-bar">
+            <div className="d-flex justify-content-end">
+            <button className='btn btn-danger b-s mb-2 m-3 ' onClick={handleclear}>
               <strong>Clear All</strong> <i class="fa-solid fa-trash mx-2"></i>
             </button>
+            </div>
             <div className="row ">
               <SideForm />
             </div>

@@ -20,6 +20,7 @@ function Home() {
   useEffect(() => {
     context.Profile();
     list.Players();
+    list.setSave('')
     // eslint-disable-next-line
   }, [])
 

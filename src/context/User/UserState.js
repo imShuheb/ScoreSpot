@@ -21,7 +21,6 @@ const Users = (props) => {
         const pdata = await response.json();
         setData(pdata);
     }
-    console.log(save)
     const Teams = async () => {
         const url = `${host}/teams/teamlist`;
         const response = await fetch(url, {

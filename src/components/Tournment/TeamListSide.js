@@ -29,16 +29,16 @@ const TeamListSide = () => {
                 </div>
                 <div className="info" >
                     <div className="container no-scroll red-bar bord" >
-                        <div class="relative">
+                        <div className="relative">
                             <img src={vs} className='img-fluid' alt="Norway" style={{ width: "95%", height: "95%" }} />
-                            <div class="text-block">
+                            <div className="text-block">
                                 <div className="row" style={{marginTop:"30px"}}>
                                     {Array.isArray(teams)
                                         // eslint-disable-next-line 
                                         ? teams.map(ele => {
                                             const { name } = ele
                                             return (
-                                                <div className='col-md-6 text-uppercase'>
+                                                <div className='col-md-6 text-uppercase' key={ele._id}>
                                                     <h2>{name}</h2>
                                                 </div>
                                             )

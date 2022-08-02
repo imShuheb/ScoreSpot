@@ -23,11 +23,11 @@ const TeamListSide = () => {
         console.log(teams)
     };
 
-    const onsub = () =>{
-        if(!teams){
+    const onsub = () => {
+        if (!teams) {
             alert("fill values to schedule")
         }
-        console.log(teams)
+        context.addSchedule(teams)
     }
 
     return (
@@ -70,14 +70,17 @@ const TeamListSide = () => {
                         </div>
                         {/* form end */}
                         <br />
+                        
                         <div className="row datepicker my-2" >
-                        <h5>Date</h5>
+                            <h5>Date</h5>
                             <input type="date" id="start" onChange={onChange} name="date" min="2022-01-01" max="2023-12-31" />
                         </div>
+
                         <div className='my-4'>
-                        <h5>Ground</h5>
-                            <input type="text" name="ground" onChange={onChange} className='form-control' placeholder='Place'/>
+                            <h5>Ground</h5>
+                            <input type="text" name="ground" onChange={onChange} className='form-control mx-5' placeholder='Place' style={{width:"400px"}}/>
                         </div>
+                        
                     </div>
                 </div>
                 <div className="d-flex justify-content-center">

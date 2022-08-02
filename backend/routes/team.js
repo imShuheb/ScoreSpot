@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fetchuser = require('../middleware/fetchuser');
 const Profile = require('../models/profile');
-// const User = require('../models/User');
+const Schedule = require('../models/schedule')
 const Teams = require('../models/Teams');
 
 
@@ -27,8 +27,6 @@ router.post('/players', fetchuser, async (req, res) => {
             const error = "Player already exist"
             return res.status(200).json({ error })
         }
-        // const string = JSON.stringify(data);
-        // console.log(string)
         const profile = new Teams({
             user: req.users.id, data, name
         })
@@ -37,6 +35,22 @@ router.post('/players', fetchuser, async (req, res) => {
         success = "true"
         res.status(200).json({ success, saveProfile })
 
+
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+});
+router.post('/schedule/match', fetchuser, async (req, res) => {
+    try {
+        let success = "false"
+        const { team1, team2, time, date, ground } = req.body
+        const profile = new Schedule({
+            user: req.users.id, team1, team2, time, ground, date
+        })
+        const saveProfile = await profile.save()
+        success = "true"
+        res.status(200).json({ success, saveProfile })
 
     } catch (error) {
         console.error(error.message);

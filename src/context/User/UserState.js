@@ -53,10 +53,34 @@ const Users = (props) => {
         const err = res.error
         if (err) { alert(err) }
     }
-    // end edit profile section
+    // end edit profile section 
+
+    // start schedule
+    const addSchedule = async (data) => {
+        // API Call 
+        console.log(data)
+        const {date,time,ground} = data
+        // console.log(date)
+        // console.log(time)
+        // console.log(ground)
+        // console.log(data[1])
+        // console.log(data[0])
+        const response = await fetch(`${host}/teams/schedule/match`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "auth-token": sessionStorage.getItem('token')
+            },
+            body: JSON.stringify({ date, time, ground,team1:data[0],team2:data[1] })
+        });
+        const res = await response.json();
+        const err = res.error
+        if (err) { alert(err) }
+    }
+    // end
 
     return (
-        <userContext.Provider value={{ Data, Players, setPlayers, addTeam, playersdata, teams, save, setSave, setTeams }}>
+        <userContext.Provider value={{ Data, Players, setPlayers, addTeam, playersdata, teams, save, setSave, setTeams, addSchedule }}>
             {props.children}
         </userContext.Provider>
     )

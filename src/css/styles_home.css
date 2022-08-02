@@ -13,6 +13,10 @@ body {
   background-color: #dfe2e7;
 }
 
+.no-scroll{
+  overflow: hidden;
+}
+
 .side {
   display: flex;
   position: relative;
@@ -337,11 +341,15 @@ body {
 }
 
 .text-block {
-  font-family: 'Times New Roman', Times, serif;
+  width: 60vw;
   font-size:2rem;
   position: absolute;
-  bottom: 200px;
-  background-color: rgba(0, 0, 0, 0);
-  color: black;
-  margin-left: 150px;
+  bottom: 190px;
+  color:rgb(68, 0, 0);
+  margin-left: 80px;
+}
+
+.no-p-m{
+  margin:0;
+  padding: 0;
 }

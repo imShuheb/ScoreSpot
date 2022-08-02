@@ -12,30 +12,41 @@ const TeamListSide = () => {
         document.write("Refresh Page")
     }
 
-    // const handleRemoveItem = (e) => {
-    //     const user = e.target.getAttribute("name")
-    //     context.setSave(context.save.filter(item => item._id !== user));
-    // };
+    const handleRemoveItem = (e) => {
+        if(teams.lenght === ''){
+            alert("select teams to remove")
+        }else{
+            context.setSave('');
+            
+        }
+    };
 
     return (
         <>
             <div className="main_content my-3 ">
+                <div className="d-flex justify-content-around">
+            <button className="btn btn-danger ml-auto p-2" onClick={handleRemoveItem}>Clear</button>
+                </div>
                 <div className="info" >
-                    <div className="container scroll red-bar bord" >
+                    <div className="container no-scroll red-bar bord" >
                         <div class="relative">
-                            <img src={vs} alt="Norway" style={{ width: "95%", height: "95%" }} />
-                            <div class="text-block d-flex">
-                                {Array.isArray(teams)
-                                    // eslint-disable-next-line 
-                                    ? teams.map(ele => {
-                                        return (
-                                            <div className='col-sm-5 text-uppercase' style={{ marginLeft: "70px"}}>
-                                                <text>{ele.name}</text>
-                                            </div>
-                                        )
-                                    }) : write}
+                            <img src={vs} className='img-fluid' alt="Norway" style={{ width: "95%", height: "95%" }} />
+                            <div class="text-block">
+                                <div className="row" style={{marginTop:"30px"}}>
+                                    {Array.isArray(teams)
+                                        // eslint-disable-next-line 
+                                        ? teams.map(ele => {
+                                            const { name } = ele
+                                            return (
+                                                <div className='col-md-6 text-uppercase'>
+                                                    <h2>{name}</h2>
+                                                </div>
+                                            )
+                                        }) : write}
+                                </div>
                             </div>
                         </div>
+                        {/* </div> */}
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ const Schedule = () => {
 
 
     return (
-        <>
+        <div className='no-scroll'>
             <HomeNav />
             <div className="side">
                 <SideNav />
@@ -15,7 +15,7 @@ const Schedule = () => {
                 <Teamselect />
             </div>
 
-        </>
+        </div>
     )
 }
 

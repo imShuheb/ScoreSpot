@@ -353,3 +353,16 @@ body {
   margin:0;
   padding: 0;
 }
+
+.timepicker {
+  height: 30px;
+  width: 880px;
+}
+
+.datepicker{
+  width: 200px;
+}
+
+.datepicker input{
+  margin-left: 60px;
+}

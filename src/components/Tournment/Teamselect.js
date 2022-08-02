@@ -25,11 +25,6 @@ const Teamselect = () => {
     }
 
     const handle = (event, value) => {
-        console.log(value)
-        // for (let index = 0; index < 13; index++) {
-        //     const element = value.data[index];
-        //     setRepeat([...repeat, element])
-        // }
         setRepeat(value)
         document.getElementById('toggle-list').click()
     }

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import userContext from '../../context/User/userContext'
 import vs from '../../images/vs.jpg'
 
@@ -6,33 +6,40 @@ import vs from '../../images/vs.jpg'
 const TeamListSide = () => {
     const context = useContext(userContext);
     const teams = context.save;
+    const dat = { time: "" }
 
 
     const write = () => {
         document.write("Refresh Page")
     }
 
-    const handleRemoveItem = (e) => {
-        if(teams.lenght === ''){
-            alert("select teams to remove")
-        }else{
-            context.setSave('');
-            
-        }
+    const handle = (e) => {
+        e.preventDefault();
+        context.setSave({ ...teams, [e.target.name]: e.target.value });
+    }
+
+    const onChange = (e) => {
+        context.setSave({ ...teams, [e.target.name]: e.target.value });
+        console.log(teams)
     };
+
+    const onsub = () =>{
+        if(!teams){
+            alert("fill values to schedule")
+        }
+        console.log(teams)
+    }
 
     return (
         <>
             <div className="main_content my-3 ">
-                <div className="d-flex justify-content-around">
-            <button className="btn btn-danger ml-auto p-2" onClick={handleRemoveItem}>Clear</button>
-                </div>
+
                 <div className="info" >
-                    <div className="container no-scroll red-bar bord" >
+                    <div className="container scroll red-bar bord" >
                         <div className="relative">
                             <img src={vs} className='img-fluid' alt="Norway" style={{ width: "95%", height: "95%" }} />
                             <div className="text-block">
-                                <div className="row" style={{marginTop:"30px"}}>
+                                <div className="row" style={{ marginTop: "30px" }}>
                                     {Array.isArray(teams)
                                         // eslint-disable-next-line 
                                         ? teams.map(ele => {
@@ -46,8 +53,35 @@ const TeamListSide = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* </div> */}
+                        {/* form */}
+                        <h5>Match timing</h5>
+                        <div className="row timepicker">
+                            <div className="btn-group mx-5 bordar" role="group" aria-label="Basic example">
+                                <button type="button" name='time' onClick={handle} className={`btn ${teams.time === "9:00 am" ? "btn-dark" : "btn-danger"}`} value='9:00 am'>09:00 am</button>
+                                <button type="button" name='time' onClick={handle} className={`btn ${teams.time === "9:30 am" ? "btn-dark" : "btn-danger"}`} value='9:30 am'>09:30 am</button>
+                                <button type="button" name='time' onClick={handle} className={`btn ${teams.time === "10:30 am" ? "btn-dark" : "btn-danger"}`} value='10:30 am'>10:30 am</button>
+                                <button type="button" name='time' onClick={handle} className={`btn ${teams.time === "11:00 am" ? "btn-dark" : "btn-danger"}`} value='11:00 am'>11:00 am</button>
+                                <button type="button" name='time' onClick={handle} className={`btn ${teams.time === "11:30 am" ? "btn-dark" : "btn-danger"}`} value='11:30 am'>11:30 am</button>
+                                <button type="button" name='time' onClick={handle} className={`btn ${teams.time === "12:00 am" ? "btn-dark" : "btn-danger"}`} value='12:00 am'>12:00 pm</button>
+                                <button type="button" name='time' onClick={handle} className={`btn ${teams.time === "12:30 am" ? "btn-dark" : "btn-danger"}`} value='12:30 am'>12:30 pm</button>
+                                <button type="button" name='time' onClick={handle} className={`btn ${teams.time === "1:00 am" ? "btn-dark" : "btn-danger"}`} value='01:00 am'>01:00 pm</button>
+                                <button type="button" name='time' onClick={handle} className={`btn ${teams.time === "1:30 am" ? "btn-dark" : "btn-danger"}`} value='01:30 am'>01:30 pm</button>
+                            </div>
+                        </div>
+                        {/* form end */}
+                        <br />
+                        <div className="row datepicker my-2" >
+                        <h5>Date</h5>
+                            <input type="date" id="start" onChange={onChange} name="date" min="2022-01-01" max="2023-12-31" />
+                        </div>
+                        <div className='my-4'>
+                        <h5>Ground</h5>
+                            <input type="text" name="ground" onChange={onChange} className='form-control' placeholder='Place'/>
+                        </div>
                     </div>
+                </div>
+                <div className="d-flex justify-content-center">
+                    <button className="btn btn-danger" onClick={onsub}>Schedule</button>
                 </div>
             </div>
         </>

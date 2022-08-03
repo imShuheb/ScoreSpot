@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import SideNav from '../../Navbars/SideNav'
 import HomeNav from '../../Navbars/HomeNav'
 import MatchList from './MatchList'
+import userContext from '../../../context/User/userContext'
+
 
 const Matches = () => {
+    const context = useContext(userContext)
+
+    useEffect(() => {
+        context.check();
+    }, [])
+    
     return (
         <>
             <HomeNav />

@@ -59,7 +59,7 @@ const Users = (props) => {
     const addSchedule = async (data) => {
         // API Call 
         console.log(data)
-        const {date,time,ground} = data
+        const { date, time, ground } = data
         // console.log(date)
         // console.log(time)
         // console.log(ground)
@@ -71,7 +71,7 @@ const Users = (props) => {
                 'Content-Type': 'application/json',
                 "auth-token": sessionStorage.getItem('token')
             },
-            body: JSON.stringify({ date, time, ground,team1:data[0],team2:data[1] })
+            body: JSON.stringify({ date, time, ground, team1: data[0], team2: data[1] })
         });
         const res = await response.json();
         const err = res.error

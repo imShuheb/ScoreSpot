@@ -4,8 +4,10 @@ import SideNav from '../../Navbars/SideNav'
 import Players from './Players'
 import SideForm from './SideForm'
 import userContext from '../../../context/User/userContext'
+import { useNavigate } from 'react-router-dom'
 
 const CreateTeam = () => {
+  const history = useNavigate()
   const context = useContext(userContext)
 
   const handleCreate = (e) => {
@@ -21,6 +23,8 @@ const CreateTeam = () => {
 
     } else {
       context.addTeam(context.playersdata, teamname)
+      alert("Team Created")
+      history('/schedule')
     }
   }
   const handleclear = (e) => {

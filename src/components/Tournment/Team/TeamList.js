@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
-import HomeNav from '../Navbars/HomeNav'
-import SideNav from '../Navbars/SideNav'
+import HomeNav from '../../Navbars/HomeNav'
+import SideNav from '../../Navbars/SideNav'
 import TeamListSide from './TeamListSide'
 import Teamselect from './Teamselect'
 const Schedule = () => {

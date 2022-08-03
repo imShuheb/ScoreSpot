@@ -1,13 +1,11 @@
-import React, { useContext, useState } from 'react'
-import userContext from '../../context/User/userContext'
-import vs from '../../images/vs.jpg'
+import React, { useContext } from 'react'
+import userContext from '../../../context/User/userContext'
+import vs from '../../../images/vs.jpg'
 
 
 const TeamListSide = () => {
     const context = useContext(userContext);
     const teams = context.save;
-    const dat = { time: "" }
-
 
     const write = () => {
         document.write("Refresh Page")
@@ -38,8 +36,10 @@ const TeamListSide = () => {
                     <div className="container scroll red-bar bord" >
                         <div className="relative">
                             <img src={vs} className='img-fluid' alt="Norway" style={{ width: "95%", height: "95%" }} />
+
                             <div className="text-block">
                                 <div className="row" style={{ marginTop: "30px" }}>
+
                                     {Array.isArray(teams)
                                         // eslint-disable-next-line 
                                         ? teams.map(ele => {
@@ -50,8 +50,10 @@ const TeamListSide = () => {
                                                 </div>
                                             )
                                         }) : write}
+
                                 </div>
                             </div>
+
                         </div>
                         {/* form */}
                         <h5>Match timing</h5>

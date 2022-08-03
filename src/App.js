@@ -7,9 +7,9 @@ import MyProfile from "./components/home/MyProfile";
 import Login from "./components/Login";
 import ProfileState from "./context/Profile/ProfileState";
 import TeamsState from "./context/User/UserState";
-import Schedule from "./components/Tournment/Schedule"
-import TeamList from './components/Tournment/TeamList'
-import CreateTeam from './components/Tournment/Team/CreateTeam'
+import Matches from "./components/Tournment/matches/Matches"
+import TeamList from './components/Tournment/Team/TeamList'
+import CreateTeam from './components/Tournment/create/CreateTeam'
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/createteams" element={<CreateTeam />} />
               <Route path="/teams" element={<TeamList/>} />
-              <Route path="/schedule" element={<Schedule />} />
+              <Route path="/schedule" element={<Matches />} />
               <Route path="/myProfile" element={<MyProfile />} />
             </Routes>
           </BrowserRouter>

@@ -24,7 +24,7 @@ router.post('/players', fetchuser, async (req, res) => {
         const { data, name } = req.body
         const teams = await Teams.findOne({ name: name })
         if (teams) {
-            const error = "Player already exist"
+            const error = "Team Name Already Exists"
             return res.status(200).json({ error })
         }
         const profile = new Teams({
@@ -41,6 +41,7 @@ router.post('/players', fetchuser, async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
+
 router.post('/schedule/match', fetchuser, async (req, res) => {
     try {
         let success = "false"
@@ -57,6 +58,35 @@ router.post('/schedule/match', fetchuser, async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
+
+router.post('/check', fetchuser, async (req, res) => {
+    const { id } = req.body;
+    let success = "false"
+    try {
+        if (id === await req.users.id) {
+            success = 'true'
+            res.status(200).json({success})
+        } else {
+            res.status(200).json({success})
+
+        }
+    } catch(e){
+        res.status(500).send("Internal server error")
+    }
+})
+
+router.post('/matchlist', async (req, res) => {
+    try {
+        const teams = await Schedule.find({});
+        res.status(200).json(teams);
+    }
+    catch (error) {
+        console.log(error)
+        res.status(500).send("Internal server error occured")
+    }
+})
+
+
 
 router.post('/teamlist', async (req, res) => {
     try {

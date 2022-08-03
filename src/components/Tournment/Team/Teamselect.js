@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import userContext from '../../context/User/userContext'
+import userContext from '../../../context/User/userContext'
 
 
 const Teamselect = () => {
@@ -12,14 +12,15 @@ const Teamselect = () => {
         document.write("Refresh Page")
     }
 
-    const handleSide = (event, mess) => {
+    const handleSide = (event, mess, name) => {
+        const iteams = {mess,name}
         if (context.save.length > 1) {
             return alert("2 Teams are already selected")
         } else {
             if (context.save.includes(mess)) {
                 return alert("Teams already exists")
             } else {
-                context.setSave([...context.save, mess])
+                context.setSave([...context.save, iteams])
             }
         }
     }
@@ -92,7 +93,7 @@ const Teamselect = () => {
                                         <div className="col-sm-6">
                                             <div className="row justify-content-end text-center" style={{ marginLeft: "30px" }}>
                                                 <a className='no-p-m' onClick={event => handle(event, ele)} role="button" >Detials</a>
-                                                <a className='no-p-m' onClick={event => handleSide(event, ele)} role="button" >Add</a>
+                                                <a className='no-p-m' onClick={event => handleSide(event, ele, ele.name)} role="button" >Add</a>
                                             </div>
                                         </div>
                                     </div>

@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react'
 
 const Users = (props) => {
     const host = "http://localhost:5000";
-
-    const second = ""
+    const second = ''
     const [Data, setData] = useState(second);
     const [teams, setTeams] = useState(second)
     const [save, setSave] = useState(second)
     const [playersdata, setPlayers] = useState(second)
+    const [matches, setmatches] = useState(second)
+    const [usercheck, setcheck] = useState(second)
+
 
     const Players = async () => {
         const url = `${host}/api/userlist`;
@@ -21,6 +23,7 @@ const Users = (props) => {
         const pdata = await response.json();
         setData(pdata);
     }
+
     const Teams = async () => {
         const url = `${host}/teams/teamlist`;
         const response = await fetch(url, {
@@ -33,14 +36,7 @@ const Users = (props) => {
         setTeams(pdata);
     }
 
-    useEffect(() => {
-        Players();
-        Teams();
-    }, [])
-
-    // edit profile section
     const addTeam = async (data, name) => {
-        // API Call 
         const response = await fetch(`${host}/teams/players`, {
             method: 'POST',
             headers: {
@@ -53,11 +49,8 @@ const Users = (props) => {
         const err = res.error
         if (err) { alert(err) }
     }
-    // end edit profile section 
 
-    // start schedule
     const addSchedule = async (data) => {
-        // API Call 
         console.log(data)
         const { date, time, ground, balltype, overs, perbowler } = data
         const response = await fetch(`${host}/teams/schedule/match`, {
@@ -72,10 +65,42 @@ const Users = (props) => {
         const err = res.error
         if (err) { alert(err) }
     }
-    // end
+
+    const getSchedule = async () => {
+        const response = await fetch(`${host}/teams/matchlist`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        const res = await response.json();
+        setmatches(res);
+
+    }
+
+    const check = async (id) => {
+        const response = await fetch(`${host}/teams/check`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "auth-token": sessionStorage.getItem('token')
+            },
+            body: JSON.stringify({ id })
+        });
+        const res = await response.json();
+        setcheck(res)
+
+    }
+
+    useEffect(() => {
+        Players();
+        Teams();
+        getSchedule();
+        check('62d3b4083ddd1d28f4c954ef')
+    }, [])
 
     return (
-        <userContext.Provider value={{ Data, Players, setPlayers, addTeam, playersdata, teams, save, setSave, setTeams, addSchedule }}>
+        <userContext.Provider value={{ Data, matches, playersdata, teams, save, usercheck, Players, setPlayers, addTeam, setSave, setTeams, addSchedule, check }}>
             {props.children}
         </userContext.Provider>
     )

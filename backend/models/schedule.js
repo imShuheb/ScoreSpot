@@ -21,6 +21,15 @@ const Schedule = new Schema({
     },
     time: {
         type: String
+    },
+    overs: {
+        type: String
+    },
+    perovers: {
+        type: String
+    },
+    balltype: {
+        type: String
     }
 })
 const User = mongoose.model('schedule', Schedule);

@@ -59,19 +59,14 @@ const Users = (props) => {
     const addSchedule = async (data) => {
         // API Call 
         console.log(data)
-        const { date, time, ground } = data
-        // console.log(date)
-        // console.log(time)
-        // console.log(ground)
-        // console.log(data[1])
-        // console.log(data[0])
+        const { date, time, ground, balltype, overs, perbowler } = data
         const response = await fetch(`${host}/teams/schedule/match`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 "auth-token": sessionStorage.getItem('token')
             },
-            body: JSON.stringify({ date, time, ground, team1: data[0], team2: data[1] })
+            body: JSON.stringify({ date, time, ground, team1: data[0], team2: data[1], balltype, overs, perbowler })
         });
         const res = await response.json();
         const err = res.error

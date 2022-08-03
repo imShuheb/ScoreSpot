@@ -70,17 +70,39 @@ const TeamListSide = () => {
                         </div>
                         {/* form end */}
                         <br />
-                        
+
                         <div className="row datepicker my-2" >
                             <h5>Date</h5>
                             <input type="date" id="start" onChange={onChange} name="date" min="2022-01-01" max="2023-12-31" />
                         </div>
 
+                        <div className='row '>
+                            <div className="col-sm-6 mt-2">
+                                <h5>No. of Overs</h5>
+                                <input type="text" name="overs" onChange={onChange} className='form-control mx-5' placeholder='Overs' style={{ width: "400px" }} />
+                            </div>
+                            <div className="col-sm-6 mt-2">
+                                <h5>Overs Per Bowler</h5>
+                                <input type="text" name="perbowler" onChange={onChange} className='form-control mx-5' placeholder='Overs' style={{ width: "400px" }} />
+                            </div>
+                        </div>
+
                         <div className='my-4'>
                             <h5>Ground</h5>
-                            <input type="text" name="ground" onChange={onChange} className='form-control mx-5' placeholder='Place' style={{width:"400px"}}/>
+                            <input type="text" name="ground" onChange={onChange} className='form-control mx-5' placeholder='Place' style={{ width: "400px" }} />
                         </div>
-                        
+                        <div className='my-4 text-capitalize'>
+                            <h5>Bowl Type</h5>
+                            <div class="form-check form-check-inline mx-5">
+                                <input class="form-check-input" type="radio" onChange={onChange} name="balltype" id="inlineRadio1" value="leather" />
+                                <label class="form-check-label" for="inlineRadio1">leather</label>
+                            </div>
+                            <div class="form-check form-check-inline mx-5">
+                                <input class="form-check-input" type="radio" onChange={onChange} name="balltype" id="inlineRadio2" value="tennis" />
+                                <label class="form-check-label" for="inlineRadio2">tennis</label>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div className="d-flex justify-content-center">

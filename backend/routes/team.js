@@ -44,9 +44,9 @@ router.post('/players', fetchuser, async (req, res) => {
 router.post('/schedule/match', fetchuser, async (req, res) => {
     try {
         let success = "false"
-        const { team1, team2, time, date, ground } = req.body
+        const { team1, team2, time, date, ground, balltype, overs, perbowler } = req.body
         const profile = new Schedule({
-            user: req.users.id, team1, team2, time, ground, date
+            user: req.users.id, team1, team2, time, ground, date, balltype, overs, perbowler
         })
         const saveProfile = await profile.save()
         success = "true"

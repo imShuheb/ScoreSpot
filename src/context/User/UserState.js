@@ -11,7 +11,6 @@ const Users = (props) => {
     const [matches, setmatches] = useState(second)
     const [usercheck, setcheck] = useState(second)
 
-
     const Players = async () => {
         const url = `${host}/api/userlist`;
         const response = await fetch(url, {
@@ -75,23 +74,32 @@ const Users = (props) => {
         });
         const res = await response.json();
         setmatches(res);
-
     }
 
     const check = async (id) => {
+        const {user} = id
+        // console.log(user)
         const response = await fetch(`${host}/teams/check`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 "auth-token": sessionStorage.getItem('token')
             },
-            body: JSON.stringify({ id })
+            body: JSON.stringify({ user })
         });
         const res = await response.json();
         setcheck(res)
+
+        if(res.success === "true"){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
-    console.log(matches[0],matches[1])
+    
+
     useEffect(() => {
         Players();
         Teams();

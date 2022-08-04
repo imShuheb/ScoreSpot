@@ -5,7 +5,7 @@ import userContext from '../../../context/User/userContext'
 const MatchList = () => {
     const context = useContext(userContext);
     const matches = context.matches
-
+var c = ''
     const write = () => {
         document.write("Refresh Page")
     }
@@ -15,7 +15,8 @@ const MatchList = () => {
             <div className="row">
                 {Array.isArray(matches)
                     // eslint-disable-next-line 
-                    ? matches.map(ele => {
+                    ? matches.map((ele, index) => {
+                        // context.check(ele) 
                         return (
                             <>
                                 <div className="col-sm-6" key={ele._id}>
@@ -32,7 +33,7 @@ const MatchList = () => {
                                             <hr />
                                             <div className="d-flex align-item-end justify-content-between text-capitalize">
                                                 <div>time : {ele.time} </div>
-                                                {context.usercheck.success === 'true' ? <Link to='/startscore' role='button' className='p-m-0'>start scoring</Link> : ""}
+                                                {context.check(ele) || context.usercheck.success === "true" ? <Link to='/startscore' role='button' className='p-m-0'>start scoring</Link>:"false"}
                                                 <a role='button' className='p-m-0'> view </a>
                                             </div>
                                         </div>

@@ -63,10 +63,11 @@ router.post('/check', fetchuser, async (req, res) => {
     const { id } = req.body;
     let success = "false"
     try {
-        if (id === await req.users.id) {
+        if (id ===  req.users.id) {
             success = 'true'
             res.status(200).json({success})
         } else {
+            success = 'false'
             res.status(200).json({success})
 
         }

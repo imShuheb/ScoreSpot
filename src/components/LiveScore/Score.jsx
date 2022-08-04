@@ -5,7 +5,7 @@ const Score = () => {
   return (
     <>
       <HomeNav/>
-      <div className="container-size mt-5  " style={{ marginLeft: "150px" }}>4
+      <div className="container-size mt-5 " style={{ marginLeft: "150px" }}>hello world
 
       </div>
     </>

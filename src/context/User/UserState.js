@@ -89,14 +89,13 @@ const Users = (props) => {
         });
         const res = await response.json();
         setcheck(res)
-
     }
 
+    console.log(matches[0],matches[1])
     useEffect(() => {
         Players();
         Teams();
         getSchedule();
-        check('62d3b4083ddd1d28f4c954ef')
     }, [])
 
     return (

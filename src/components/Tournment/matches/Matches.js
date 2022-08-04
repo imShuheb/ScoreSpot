@@ -8,9 +8,9 @@ import userContext from '../../../context/User/userContext'
 const Matches = () => {
     const context = useContext(userContext)
 
-    useEffect(() => {
-        context.check();
-    }, [])
+    // useEffect(() => {
+    //     // context.check(context.matches[0].user);
+    // }, [])
     
     return (
         <>

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import userContext from '../../../context/User/userContext'
 
 const MatchList = () => {
@@ -31,7 +32,7 @@ const MatchList = () => {
                                             <hr />
                                             <div className="d-flex align-item-end justify-content-between text-capitalize">
                                                 <div>time : {ele.time} </div>
-                                                {context.usercheck.success === 'true' ? <a role='button' className='p-m-0'>start scoring</a> : ""}
+                                                {context.usercheck.success === 'true' ? <Link to='/startscore' role='button' className='p-m-0'>start scoring</Link> : ""}
                                                 <a role='button' className='p-m-0'> view </a>
                                             </div>
                                         </div>

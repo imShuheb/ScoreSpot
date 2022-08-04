@@ -1,10 +1,14 @@
 import React from 'react'
+import HomeNav from '../Navbars/HomeNav'
 
 const Score = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <HomeNav/>
+      <div className="container-size mt-5  " style={{ marginLeft: "150px" }}>4
+
+      </div>
+    </>
   )
 }
 

@@ -1,13 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import userContext from '../../../context/User/userContext'
 
 const MatchList = () => {
     const context = useContext(userContext);
     const matches = context.matches
-var c = ''
+
     const write = () => {
         document.write("Refresh Page")
+    }
+
+    const handlesend = (ele) => {
+        context.check(ele._id)
+        console.table(ele)
     }
 
     return (
@@ -16,7 +21,11 @@ var c = ''
                 {Array.isArray(matches)
                     // eslint-disable-next-line 
                     ? matches.map((ele, index) => {
-                        // context.check(ele) 
+                        const Run = () => {
+                            useEffect(() => {
+                                context.check(ele._id)
+                            }, [])
+                        }
                         return (
                             <>
                                 <div className="col-sm-6" key={ele._id}>
@@ -33,7 +42,8 @@ var c = ''
                                             <hr />
                                             <div className="d-flex align-item-end justify-content-between text-capitalize">
                                                 <div>time : {ele.time} </div>
-                                                {context.check(ele) || context.usercheck.success === "true" ? <Link to='/startscore' role='button' className='p-m-0'>start scoring</Link>:"false"}
+                                                {Run}
+                                                {context.usercheck === "true" ? <Link to='/startscore' onClick={() => handlesend(ele)} role='button' className='p-m-0'>start scoring</Link> : <Link to='/startscore' onClick={() => handlesend(ele)} role='button' className='p-m-0'>start scoring</Link>}
                                                 <a role='button' className='p-m-0'> view </a>
                                             </div>
                                         </div>

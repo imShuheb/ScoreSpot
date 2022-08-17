@@ -14,7 +14,9 @@ function MyProfile() {
     const { email } = context.udata;
 
     useEffect(() => {
-        updateNote(context.data)
+        setTimeout(() => {
+            updateNote(context.data)
+        }, 1500);
         // eslint-disable-next-line
     }, [])
 
@@ -29,7 +31,7 @@ function MyProfile() {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        context.editProfile(update.id,update.efname,update.elname,update.ephone,update.eaddress,update.edob)
+        context.editProfile(update.id, update.efname, update.elname, update.ephone, update.eaddress, update.edob)
         alert("Profile Updated")
     }
 
@@ -60,7 +62,7 @@ function MyProfile() {
                                 <div className="card-body text-center">
                                     <img className="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
                                     <div className="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                                    <input type="file" className='btn btn-danger' name="file"/>
+                                    <input type="file" className='btn btn-danger' name="file" />
                                 </div>
                             </div>
                         </div>
@@ -74,32 +76,32 @@ function MyProfile() {
                                         <div className="row gx-3 mb-3">
                                             <div className="col-md-6">
                                                 <label className="small mb-1" htmlFor="inputFirstName">First name</label>
-                                                <input className="form-control" id="inputFirstName" name='efname' type="text" value={efname} onChange={onChange} />
+                                                <input className="form-control" id="inputFirstName" name='efname' type="text" value={efname?efname:''} onChange={onChange} />
                                             </div>
                                             <div className="col-md-6">
                                                 <label className="small mb-1 " htmlFor="inputLastName">Last name</label>
-                                                <input className="form-control" id="inputLastName" type="text" name="elname" value={elname} onChange={onChange} />
+                                                <input className="form-control" id="inputLastName" type="text" name="elname" value={elname?elname:''} onChange={onChange} />
                                             </div>
                                         </div>
                                         <div className="row gx-3 mb-3">
                                             <div className="col-md-6">
                                                 <label className="small mb-1" htmlFor="inputOrgName">Address</label>
-                                                <textarea className="form-control" id="inputOrgName" type="text" name="eaddress" value={eaddress} onChange={onChange} />
+                                                <textarea className="form-control" id="inputOrgName" type="text" name="eaddress" value={eaddress?eaddress:''} onChange={onChange} />
                                             </div>
 
                                             <div className="mb-3 col-md-6">
                                                 <label className="small mb-1" htmlFor="inputEmailAddress">Email address</label>
-                                                <input className="form-control" id="inputEmailAddress" type="email" value={email} readOnly />
+                                                <input className="form-control" id="inputEmailAddress" type="email" value={email?email:''} readOnly />
                                             </div>
                                         </div>
                                         <div className="row gx-3 mb-3">
                                             <div className="col-md-6">
                                                 <label className="small mb-1" htmlFor="inputPhone">Phone number</label>
-                                                <input className="form-control" id="inputPhone" type="tel" value={ephone} onChange={onChange} name="ephone" />
+                                                <input className="form-control" id="inputPhone" type="tel" value={ephone?ephone:''} onChange={onChange} name="ephone" />
                                             </div>
                                             <div className="col-md-6">
                                                 <label className="small mb-1" htmlFor="inputBirthday">Birthday</label>
-                                                <input className="form-control" id="inputBirthday" type={`${type === "text" ? "text" : "date"}`} name="edob" value={edob} onFocus={() => setType('date')} onBlur={() => setType('text')} onChange={onChange} />
+                                                <input className="form-control" id="inputBirthday" type={`${type === "text" ? "text" : "date"}`} name="edob" value={edob?edob:''} onFocus={() => setType('date')} onBlur={() => setType('text')} onChange={onChange} />
                                             </div>
                                         </div>
 

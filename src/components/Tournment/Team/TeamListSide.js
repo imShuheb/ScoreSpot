@@ -18,7 +18,6 @@ const TeamListSide = () => {
 
     const onChange = (e) => {
         context.setSave({ ...teams, [e.target.name]: e.target.value });
-        console.log(teams)
     };
 
     const onsub = () => {

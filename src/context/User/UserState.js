@@ -77,8 +77,8 @@ const Users = (props) => {
     }
 
     const check = async (id) => {
-        const {user} = id
-        // console.log(user)
+        const { user } = id
+        console.log(user)
         const response = await fetch(`${host}/teams/check`, {
             method: 'POST',
             headers: {
@@ -89,16 +89,15 @@ const Users = (props) => {
         });
         const res = await response.json();
         setcheck(res)
-
-        if(res.success === "true"){
+        if (res.success === "true") {
             return true;
         }
-        else{
+        else {
             return false;
         }
     }
 
-    
+
 
     useEffect(() => {
         Players();

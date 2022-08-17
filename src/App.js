@@ -11,6 +11,7 @@ import Matches from "./components/Tournment/matches/Matches"
 import TeamList from './components/Tournment/Team/TeamList'
 import CreateTeam from './components/Tournment/create/CreateTeam'
 import Score from './components/LiveScore/Score';
+import Live from './components/LiveScore/Live';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               <Route path="/teams" element={<TeamList/>} />
               <Route path="/schedule" element={<Matches />} />
               <Route path="/startscore" element={<Score/>} />
+              <Route path="/live" element={<Live/>} />
               <Route path="/myProfile" element={<MyProfile />} />
             </Routes>
           </BrowserRouter>

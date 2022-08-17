@@ -60,10 +60,10 @@ router.post('/schedule/match', fetchuser, async (req, res) => {
 });
 
 router.post('/check', fetchuser, async (req, res) => {
-    const { id } = req.body;
+    const { user } = req.body;
     let success = "false"
     try {
-        if (id ===  req.users.id) {
+        if (user ===  req.users.id) {
             success = 'true'
             res.status(200).json({success})
         } else {

@@ -26,14 +26,14 @@ body {
 
 .side .sidebar {
   width: 90px;
-  height: 60vh;
+  height: 65vh;
   background: #db3535;
   border-radius: 20px;
   padding: 35px 0px;
   text-align: center;
   font-size: small;
   position: fixed;
-  top: 25vh;
+  top: 22vh;
 }
 
 .side .sidebar h2 {

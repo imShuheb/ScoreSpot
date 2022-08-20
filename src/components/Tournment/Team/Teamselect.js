@@ -13,7 +13,7 @@ const Teamselect = () => {
     }
 
     const handleSide = (event, mess, name) => {
-        const iteams = {mess,name}
+        const iteams = { mess, name }
         if (context.save.length > 1) {
             return alert("2 Teams are already selected")
         } else {
@@ -58,6 +58,7 @@ const Teamselect = () => {
                                             <div className="container my-3 card-size" key={ele._id}>
                                                 <li>
                                                     <ul>
+                                                        <li>    <img src={ele.profileImg} style={{ width: '40px', height: '40px', borderRadius: '100px' }} alt="" />  </li>
                                                         <li>{ele.fname} {ele.lname}</li>
                                                         <li>{ele.phone} </li>
                                                     </ul>

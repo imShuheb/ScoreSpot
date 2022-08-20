@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ProfileContext from "./profileContext";
-
+import axios from 'axios'
 const UserState = (props) => {
     const host = "http://localhost:5000";
 
@@ -26,16 +26,33 @@ const UserState = (props) => {
 
 
     // edit profile section
-    const editProfile = async (id,fname, lname, phone, address, dob) => {
+    const editProfile = async (id, fname, lname, phone, address, dob, profileImg) => {
         // API Call 
-        await fetch(`${host}/api/updateprofile/${id}`, {
-            method: 'PUT',
+        console.log(profileImg)
+        const formData = new FormData()
+        formData.append('profileImg', profileImg)
+        formData.append('fname', fname)
+        formData.append('lname', lname)
+        formData.append('phone', phone)
+        formData.append('address', address)
+        formData.append('dob', dob)
+        const config = {
             headers: {
-                'Content-Type': 'application/json',
                 "auth-token": sessionStorage.getItem('token')
             },
-            body: JSON.stringify({ fname, lname, phone, address, dob })
-        });
+        }
+        axios.put(`${host}/api/updateprofile/${id}`, formData, config, {
+        }).then(res => {
+            console.log(res)
+        })
+        // await fetch(`${host}/api/updateprofile/${id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         "auth-token": sessionStorage.getItem('token')
+        //     },
+        //     body: JSON.stringify({ fname, lname, phone, address, dob, profileImg })
+        // });
 
     }
     // end edit profile section

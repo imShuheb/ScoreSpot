@@ -3,7 +3,8 @@ const router = express.Router();
 const fetchuser = require('../middleware/fetchuser');
 const Profile = require('../models/profile');
 const User = require('../models/User');
-
+let multer = require('multer'),
+    { v4: uuidv4 } = require('uuid');
 
 
 
@@ -25,8 +26,8 @@ router.get('/fetchuser', fetchuser, async (req, res) => {
 // fetch all profiles
 router.post('/userlist', async (req, res) => {
     try {
-       const profile = await Profile.find({});
-       res.status(200).send(profile);   
+        const profile = await Profile.find({});
+        res.status(200).send(profile);
     }
     catch (error) {
         console.log(error)
@@ -57,10 +58,38 @@ router.post('/add', fetchuser, async (req, res) => {
 });
 
 
-// ROUTE 3: Update an existing Note using: PUT "/api/updateprofile/:id". Login required
-router.put('/updateprofile/:id', fetchuser, async (req, res) => {
-    const { fname, lname, phone, dob, address} = req.body;
 
+const DIR = 'backend/public'
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, DIR);
+    },
+    filename: (req, file, cb) => {
+        const fileName = file.originalname.toLowerCase().split(' ').join('-');
+        cb(null, uuidv4() + '-' + fileName)
+    }
+});
+var upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+            cb(null, true);
+        } else {
+            cb(null, false);
+            return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+        }
+    }
+});
+
+
+// ROUTE 3: Update an existing Note using: PUT "/api/updateprofile/:id". Login required
+router.put('/updateprofile/:id', upload.single('profileImg'), fetchuser, async (req, res) => {
+    const { fname, lname, phone, dob, address } = req.body;
+    const file = req.file.filename
+    const url = req.protocol + '://' + req.get('host')
+    const imgpath = url + '/public/' + file
+    
     try {
         // Create a newprofile object
         const newProfile = {};
@@ -69,17 +98,12 @@ router.put('/updateprofile/:id', fetchuser, async (req, res) => {
         if (phone) { newProfile.phone = phone };
         if (dob) { newProfile.dob = dob };
         if (address) { newProfile.address = address };
+        newProfile.profileImg = imgpath
+
 
         // Find the note to be updated and update it
         const id = req.params.id;
         let profile = await Profile.findById(id);
-        if (!profile) {
-            return res.status(404).send("Not Found")
-        }
-
-        if (profile.user.toString() !== req.users.id) {
-            return res.status(401).send("Not Allowed");
-        }
 
         profile = await Profile.findByIdAndUpdate(id, { $set: newProfile }, { new: true })
         res.json({ profile })
@@ -115,6 +139,7 @@ router.delete('/delete/:id', fetchuser, async (req, res) => {
     }
 
 });
+
 
 
 module.exports = router

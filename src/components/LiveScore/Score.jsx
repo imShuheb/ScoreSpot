@@ -18,7 +18,6 @@ const Score = () => {
                   <input type="radio" id="html" name="fav_language" value="HTML" />
                   <label for="html">Won Toss</label>
                 </div>
-
               </div>
             </div>
           </div>
@@ -28,7 +27,7 @@ const Score = () => {
                 <h5 className="card-title">Team 2 Name </h5>
                 <hr />
                 <div class="form-check form-check-inline mx-5">
-                <input type="radio" id="html" name="fav_language" value="HTML" />
+                  <input type="radio" id="html" name="fav_language" value="HTML" />
                   <label for="html">Won Toss</label>
                 </div>
               </div>
@@ -61,7 +60,7 @@ const Score = () => {
           </div>
         </div>
         <center>
-          <Link to='live'className='btn-btn-danger'>Start</Link>
+          <Link to='/live' className='p-m-0'>Next</Link>
         </center>
       </div>
 

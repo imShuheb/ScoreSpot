@@ -43,6 +43,7 @@ const Players = () => {
                         <div className="container my-3 card-size" key={ele._id}>
                             <div className="card mx-4">
                                 <div className="card-body d-flex justify-content-between">
+                                    <img src={ele.profileImg} style={{width:'40px',height:'40px',borderRadius:'100px'}} alt="" />
                                     <strong className="card-title text-uppercase">{ele.fname} {ele.lname}  </strong>
                                     <button onClick={event => handleSide(event, ele)} className="btn btn-outline-danger ">+</button>
                                 </div>

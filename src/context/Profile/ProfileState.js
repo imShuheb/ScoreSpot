@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProfileContext from "./profileContext";
 import axios from 'axios'
 const UserState = (props) => {
@@ -45,17 +45,12 @@ const UserState = (props) => {
         }).then(res => {
             console.log(res)
         })
-        // await fetch(`${host}/api/updateprofile/${id}`, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         "auth-token": sessionStorage.getItem('token')
-        //     },
-        //     body: JSON.stringify({ fname, lname, phone, address, dob, profileImg })
-        // });
-
     }
-    // end edit profile section
+
+
+    useEffect(() => {
+        Profile();
+    })
 
 
     return (

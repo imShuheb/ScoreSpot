@@ -45,7 +45,7 @@ const TeamListSide = () => {
                                             const { name } = ele
                                             return (
                                                 <div className='col-md-6 text-uppercase' key={ele._id}>
-                                                    <h2>{name}</h2>
+                                                    <h3>{name}</h3>
                                                 </div>
                                             )
                                         }) : write}

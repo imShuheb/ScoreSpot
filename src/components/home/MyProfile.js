@@ -61,8 +61,7 @@ function MyProfile() {
                                 <div className="card mb-4 mb-xl-0">
                                     <div className="card-header">Profile Picture</div>
                                     <div className="card-body text-center">
-                                        <img className="img-account-profile rounded-circle mb-2" src={update.eprofileImg !== '' ? update.eprofileImg : 'http://bootdey.com/img/Content/avatar/avatar1.png'} alt="" />
-
+                                        <img className=" mb-2" src={update.eprofileImg !== '' ? update.eprofileImg : 'http://bootdey.com/img/Content/avatar/avatar1.png'} alt="" style={{width:'auto',height:'250px'}}/>
                                         <input type="file" className='btn btn-danger' onChange={img} name="profileImg" />
                                     </div>
                                 </div>

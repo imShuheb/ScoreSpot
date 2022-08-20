@@ -4,32 +4,42 @@ import logo from '../images/logo.png'
 import { Link } from 'react-router-dom'
 
 function Register() {
-    const [credentials, setCredentials] = useState({ email: "", password: "", name: "", cpassword: ""})
+    const [credentials, setCredentials] = useState({ email: "", password: "", name: "", cpassword: "" })
     let history = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (credentials.password!==credentials.cpassword) {
+        if (credentials.password !== credentials.cpassword) {
             alert('Password Mismatch');
-            return  history("/reg");
+            return history("/reg");
         }
-        const { name, password } = credentials
-        const response = await fetch("http://localhost:5000/api/auth/reg", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        body: JSON.stringify({ name, email:credentials.email.toLowerCase(), password })
-        });
 
-        const json = await response.json()
-        if (json.success === "true") {
-            sessionStorage.setItem('token',json.Tocken);
-            history("/profile");
+
+
+        const { name, password, email, cpassword } = credentials
+        if (name || password || email || cpassword === '') {
+            alert('Fill All The Fields');
+            return history("/reg");
+        } else {
+
+            const response = await fetch("http://localhost:5000/api/auth/reg", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email: credentials.email.toLowerCase(), password })
+            });
+
+            const json = await response.json()
+            if (json.success === "true") {
+                sessionStorage.setItem('token', json.Tocken);
+                history("/profile");
+            }
+            else {
+                alert("Email already exists");
+            }
         }
-        else {
-            alert("Email already exists");
-        }
+
     }
 
     const onChange = (e) => {
@@ -50,21 +60,21 @@ function Register() {
                                 <form onSubmit={handleSubmit}>
                                     <div className="form-floating mb-3">
                                         <input type="name" className="form-control no" name='name' id="name" placeholder="name@example.com" onChange={onChange} />
-                                        <label htmlFor="name">Name</label>
+                                        <label className='text-muted' htmlFor="name">Name</label>
                                     </div>
 
                                     <div className="form-floating mb-3">
                                         <input type="email" className="form-control no" name='email' id="email" placeholder="name@example.com" onChange={onChange} />
-                                        <label htmlFor="email">Email address</label>
+                                        <label className='text-muted' htmlFor="email">Email address</label>
                                     </div>
 
                                     <div className="form-floating mb-3">
                                         <input type="password" className="form-control" id="password" placeholder="Password" name='password' required minLength={5} onChange={onChange} />
-                                        <label htmlFor="password">Password</label>
+                                        <label className='text-muted' htmlFor="password">Password</label>
                                     </div>
                                     <div className="form-floating mb-3">
                                         <input type="password" className="form-control" id="cpassword" placeholder="Confirm Password" name='cpassword' required minLength={5} onChange={onChange} />
-                                        <label htmlFor="cpassword">Confirm Password</label>
+                                        <label className='text-muted' htmlFor="cpassword">Confirm Password</label>
                                     </div>
                                     <div className="d-grid mb-2">
                                         <button className="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Register</button>

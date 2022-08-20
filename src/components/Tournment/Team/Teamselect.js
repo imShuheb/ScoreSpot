@@ -45,34 +45,76 @@ const Teamselect = () => {
                 <button type="button" className="btn btn-primary" hidden id='toggle-list' data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
 
                 <div className="modal fade bd-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div className="modal-dialog modal-lg">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title">Team members</h5>
-                            </div>
-                            <ul>
-                                {Array.isArray(repeat.data)
-                                    // eslint-disable-next-line 
-                                    ? repeat.data.map(ele => {
-                                        return (
-                                            <div className="container my-3 card-size" key={ele._id}>
-                                                <li>
-                                                    <ul>
-                                                        <li>    <img src={ele.profileImg} style={{ width: '40px', height: '40px', borderRadius: '100px' }} alt="" />  </li>
-                                                        <li>{ele.fname} {ele.lname}</li>
-                                                        <li>{ele.phone} </li>
-                                                    </ul>
-                                                    <br />
-                                                </li>
-                                            </div>
-                                        )
-                                    }) : write}
-                            </ul>
-                            <div className="modal-footer justify-content-center">
-                                <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={clear}>Close</button>
+                    <center>
+
+                        <div className="modal-dialog modal-lg">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title">Team members</h5>
+                                </div>
+                                <ul>
+                                    {Array.isArray(repeat.data)
+                                        // eslint-disable-next-line 
+                                        ? repeat.data.map(ele => {
+                                            return (
+                                                <div className="container my-3 card-size" key={ele._id}>
+                                                    <li>
+                                                        <ul>
+                                                            <li>    <img src={ele.profileImg} style={{ width: '110px', height: 'auto', borderRadius: '100px' }} alt="" />  </li>
+                                                            <li>{ele.fname} {ele.lname}</li>
+                                                            <li>{ele.phone} </li>
+                                                            <ol className='' style={{ listStyleType: 'decimal', padding: '0', margin: '0' }}>
+                                                                {ele.batsman ? <>
+                                                                    <li>
+                                                                        <small>
+                                                                            <strong>
+                                                                                <img src="https://img.icons8.com/material-outlined/20/000000/baseball-player.png" className='mx-1' alt='-' />  {ele.batsman}
+                                                                            </strong>
+                                                                        </small>
+                                                                    </li>
+                                                                </> : ''}
+                                                                {ele.wicketKeeper ? <>
+                                                                    <li>
+                                                                        <small>
+                                                                            <strong>
+                                                                                <img src="https://img.icons8.com/external-icongeek26-glyph-icongeek26/20/000000/external-wicket-sports-and-games-icongeek26-glyph-icongeek26.png" className='mx-1' alt='-' />  {ele.wicketKeeper}
+                                                                            </strong>
+                                                                        </small>
+                                                                    </li>
+                                                                </> : ''}
+                                                                {ele.bowller ? <>
+                                                                    <li>
+                                                                        <small>
+                                                                            <strong>
+                                                                                <img src="https://img.icons8.com/external-icongeek26-glyph-icongeek26/20/000000/external-cricket-ball-sports-and-games-icongeek26-glyph-icongeek26.png" className='mx-1' alt='-' /> {ele.bowller}
+                                                                            </strong>
+                                                                        </small>
+                                                                    </li>
+                                                                </> : ''}
+                                                                {ele.allRounder ? <>
+                                                                    <li>
+                                                                        <small>
+                                                                            <strong>
+                                                                                <img src="https://img.icons8.com/external-smashingstocks-mixed-smashing-stocks/20/000000/external-cricket-hobbies-and-interest-smashingstocks-mixed-smashing-stocks.png" className='mx-2' alt='-' />    {ele.allRounder}
+                                                                            </strong>
+                                                                        </small>
+                                                                    </li>
+                                                                </> : ''}
+                                                            </ol>
+                                                        </ul>
+                                                        <br />
+                                                    </li>
+                                                </div>
+                                            )
+                                        }) : write}
+                                </ul>
+                                <div className="modal-footer justify-content-center">
+                                    <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={clear}>Close</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </center>
+
                 </div>
 
                 {/* modal end */}

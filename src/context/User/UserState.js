@@ -8,7 +8,7 @@ const Users = (props) => {
     const [teams, setTeams] = useState(second)
     const [save, setSave] = useState(second)
     const [playersdata, setPlayers] = useState(second)
-    const [matches, setmatches] = useState(second)
+    const [matches, setmatches] = useState('')
     const [usercheck, setcheck] = useState(second)
 
     const Players = async () => {

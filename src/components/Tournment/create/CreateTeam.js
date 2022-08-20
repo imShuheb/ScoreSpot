@@ -24,7 +24,7 @@ const CreateTeam = () => {
     } else {
       context.addTeam(context.playersdata, teamname)
       alert("Team Created")
-      history('/schedule')
+      history('/teams')
     }
   }
   const handleclear = (e) => {

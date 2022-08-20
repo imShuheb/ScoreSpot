@@ -63,23 +63,29 @@ router.post('/check', fetchuser, async (req, res) => {
     const { user } = req.body;
     let success = "false"
     try {
-        if (user ===  req.users.id) {
+        if (user === req.users.id) {
             success = 'true'
-            res.status(200).json({success})
+            res.status(200).json({ success })
         } else {
             success = 'false'
-            res.status(200).json({success})
+            res.status(200).json({ success })
 
         }
-    } catch(e){
+    } catch (e) {
         res.status(500).send("Internal server error")
     }
 })
 
 router.post('/matchlist', async (req, res) => {
     try {
-        const teams = await Schedule.find({});
-        res.status(200).json(teams);
+        let success = 'false'
+        const teams = await Schedule.find();
+        if (teams) {
+            success = 'true'
+            res.status(200).json({ success, teams });
+        } else {
+            res.status(200).json({ success, teams });
+        }
     }
     catch (error) {
         console.log(error)

@@ -100,7 +100,7 @@ function Profile() {
                                         </label>
                                     </div>
                                     <div className="form-check">
-                                        <img src="https://img.icons8.com/external-icongeek26-glyph-icongeek26/20/000000/external-wicket-sports-and-games-icongeek26-glyph-icongeek26.png" className='mx-1' alt='-' />
+                                        c
                                         <input className="form-check-input " type="checkbox" name='wicketKeeper' value="wicketKeeper" id="flexCheckChecked" onChange={onChange} />
                                         <label className="form-check-label" htmlFor="flexCheckChecked">
                                             Wicket-keeper

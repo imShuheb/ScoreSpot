@@ -11,6 +11,7 @@ function Home() {
   const history = useNavigate();
   const context = useContext(profileContext);
   const list = useContext(UserContext);
+  const matches = list.matches
 
   const Ret = () => {
     useEffect(() => {
@@ -37,64 +38,42 @@ function Home() {
           <div className="main_content">
             <div className="info" >
               <div className="container scroll red-bar" style={{ marginTop: "45px" }}>
+
                 <div className="row">
-                    <div className="col-sm-6 p-2">
-                      <div className="card bg-light mb-3" style={{ maxWidth: "26rem" }}>
-                        <div className="card-header">Match Type</div>
-                        <div className="card-body">
-                          <p className="card-text">Address: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, facere!</p>
-                          <h5 className="card-title">team 1 </h5>
-                          <h5 className="card-title">team 2 </h5>
-                          <hr />
-                          <div className='text-center p-0'>schedule timing</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-sm-6 p-2">
-                      <div className="card bg-light mb-3" style={{ maxWidth: "26rem" }}>
-                        <div className="card-header">Match Type</div>
-                        <div className="card-body">
-                          <p className="card-text">Address: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, facere!</p>
-                          <h5 className="card-title">team 1 </h5>
-                          <h5 className="card-title">team 2 </h5>
-                          <hr />
-                          <div className='text-center p-0'>schedule timing</div>
-                        </div>
-                      </div>
-                  </div><div className="col-sm-6 p-2">
-                    <div className="card bg-light mb-3" style={{ maxWidth: "26rem" }}>
-                      <div className="card-header">Match Type</div>
-                      <div className="card-body">
-                        <p className="card-text">Address: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, facere!</p>
-                        <h5 className="card-title">team 1 </h5>
-                        <h5 className="card-title">team 2 </h5>
-                        <hr />
-                        <div className='text-center p-0'>schedule timing</div>
-                      </div>
-                    </div>
-                  </div><div className="col-sm-6 p-2">
-                    <div className="card bg-light mb-3" style={{ maxWidth: "26rem" }}>
-                      <div className="card-header">Match Type</div>
-                      <div className="card-body">
-                        <p className="card-text">Address: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, facere!</p>
-                        <h5 className="card-title">team 1 </h5>
-                        <h5 className="card-title">team 2 </h5>
-                        <hr />
-                        <div className='text-center p-0'>schedule timing</div>
-                      </div>
-                    </div>
-                  </div><div className="col-sm-6 p-2">
-                    <div className="card bg-light mb-3" style={{ maxWidth: "26rem" }}>
-                      <div className="card-header">Match Type</div>
-                      <div className="card-body">
-                        <p className="card-text">Address: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, facere!</p>
-                        <h5 className="card-title">team 1 </h5>
-                        <h5 className="card-title">team 2 </h5>
-                        <hr />
-                        <div className='text-center p-0'>schedule timing</div>
-                      </div>
-                    </div>
-                  </div>
+                  {Array.isArray(matches)
+                    // eslint-disable-next-line 
+                    ? matches.map((ele, index) => {
+                      const Run = () => {
+                        useEffect(() => {
+                          context.check(ele._id)
+                        }, [])
+                      }
+                      return (
+                        <>
+                          <div className="col-sm-6" key={ele._id}>
+                            <div className="card bg-light mb-3 " style={{ maxWidth: "25rem" }}>
+                              <div className="card-header text-uppercase"> {ele.ground} </div>
+                              <div className="card-body text-center">
+                                <h5 className="card-title text-uppercase">{ele.team1[0].name}</h5>vs
+                                <h5 className="card-title  text-uppercase mt-2">{ele.team2[0].name}</h5>
+                                <hr />
+                                <p className='text-capitalize'>
+                                  match date : {ele.date}<br />
+                                  Ball Type : {ele.balltype}
+                                </p>
+                                <hr />
+                                <div className="d-flex align-item-end justify-content-between text-capitalize">
+                                  <div>time : {ele.time} </div>
+                                  {Run}
+                                  {/* {ele.status === 'Ongoing' ? '' : <a onClick={() => handlemodal(ele)} role='button' className='p-m-0'>start scoring</a>}
+                            <a role='button' className='p-m-0'> view </a> */}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      )
+                    }) : ''}
                 </div>
               </div>
             </div>

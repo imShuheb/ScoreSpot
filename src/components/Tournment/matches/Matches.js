@@ -3,6 +3,7 @@ import SideNav from '../../Navbars/SideNav'
 import HomeNav from '../../Navbars/HomeNav'
 import MatchList from './MatchList'
 import userContext from '../../../context/User/userContext'
+import side from '../../../images/side.jpg'
 
 
 const Matches = () => {
@@ -12,20 +13,7 @@ const Matches = () => {
     // useEffect(() => {
     //     // context.check(context.matches[0].user);
     // }, [])
-    if (matches.teams.lenght === null) {
-        return (
-            <>
-                <HomeNav />
-                <div className="side">
-                    <SideNav />
-                </div>
-                <div className="d-flex justify-content-center" style={{ marginTop: '300px' }}>
-                    <div className='h3 text-capitalize'>Schedule to see </div>
-                </div>
-            </>
-        )
-
-    } else {
+    {
         return (
             <>
                 <HomeNav />
@@ -36,9 +24,10 @@ const Matches = () => {
 
                     <div className="container-size mt-5 scroll red-bar " style={{ marginLeft: "150px" }}>
                         <MatchList />
+                    
                     </div>
                     <div className="container-fulid">
-                        <img src="" alt="-" />hello
+                        <img src={side} alt="-" style={{width:'450px',height:'91vh'}}/>
                     </div>
                 </div>
             </>

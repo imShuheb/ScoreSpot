@@ -19,10 +19,6 @@ const Schedule = new Schema({
     ground: {
         type: String
     },
-    status: {
-        type: String,
-        default: 'Upcoming'
-    },
     time: {
         type: String
     },
@@ -40,9 +36,19 @@ const Schedule = new Schema({
     perovers: {
         type: String
     },
+    
     balltype: {
         type: String
+    },
+    match_data: {
+        overs_runs: {
+            type: Array
+        },
+        players_played: {
+            type: Array
+        },
+        default: ''
     }
 })
-const User = mongoose.model('schedule', Schedule);
+const User = mongoose.model('live', Schedule);
 module.exports = User;

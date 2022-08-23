@@ -20,7 +20,7 @@
   font-size: large;
 }
 .max {
-  height:1250px;
+  height: 1250px;
   filter: blur(3px);
   -webkit-filter: blur(2px);
   max-height: 710px;
@@ -168,34 +168,33 @@
 }
 
 /* profil page */
-.fontuser i{
+.fontuser i {
   position: absolute;
   left: 15px;
   top: 40px;
   color: gray;
 }
 
-.u
-{
-text-decoration: underline;
-text-decoration-color: #000000;
+.u {
+  text-decoration: underline;
+  text-decoration-color: #000000;
 }
 
-.btn-submit{
+.btn-submit {
   width: 150px;
   height: 5vh;
   background-color: #ca1c1c;
 }
-.wid-icon{
+.wid-icon {
   width: 2vw;
   height: auto;
 }
-.boarder{
+.boarder {
   border: 1px solid black;
   border-radius: 20px;
-  padding-left: .3in;
-  padding-right: .3in;
-  padding-top: .3in;
+  padding-left: 0.3in;
+  padding-right: 0.3in;
+  padding-top: 0.3in;
   padding-bottom: 0in;
 }
 
@@ -219,13 +218,65 @@ text-decoration-color: #000000;
   text-align: center;
 }
 
-#roll-fet{
+#roll-fet {
   margin-top: 80px;
   height: 100vh;
 }
 
-.cont{
+.cont {
   margin-top: 80px;
   height: 100vh;
 }
 
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btns {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  /* padding: 8px 20px; */
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type="file"] {
+  font-size: 60px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.navbar-brand1 {
+  font-size: x-large;
+  padding-left: 640px;
+  color: white;
+}
+
+.Scorebtns {
+  padding: 5px;
+  font-weight: bold;
+  height: 30px;
+  margin-top: 300px;
+  color: white;
+}
+
+.SyncMatch {
+  padding: 5px;
+  font-weight: bold;
+  height: 30px;
+  margin-top: 10px;
+  color: white;
+}
+
+.score1to6 .height{
+  height: 50px;
+  width: 50px;
+}

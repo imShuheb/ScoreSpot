@@ -252,11 +252,19 @@ body {
 .fixed-row-bottom {
   position: fixed;
   width: 4in;
-  left: 55vw;
+  left: 44vw;
   bottom: 15px;
 }
 
 .fixed-row-bottom button {
+  margin-left: 100px;
+  width: 3in;
+}
+.fixed-row-bottom input {
+  margin-left: 50px;
+  width: 3in;
+}
+.fixed-row-bottom .teamnam {
   margin-left: 50px;
   width: 3in;
 }

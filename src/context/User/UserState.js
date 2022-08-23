@@ -73,6 +73,7 @@ const Users = (props) => {
             },
         });
         const res = await response.json();
+        console.log(res)
         setmatches(res);
     }
 

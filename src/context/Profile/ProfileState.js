@@ -50,6 +50,8 @@ const UserState = (props) => {
 
     useEffect(() => {
         Profile();
+        // eslint-disable-next-line
+
     })
 
 

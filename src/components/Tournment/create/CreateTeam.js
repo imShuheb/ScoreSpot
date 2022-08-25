@@ -60,17 +60,17 @@ const CreateTeam = () => {
             </div>
             <div className="row fixed-row-bottom">
 
-                <div>
-                  <input type="email" className="form-control" id="teamname" />
-                  <center>
-                    <small id="teamname" className="form-text text-muted text-capitalize teamnam">enter your team name, it must be unique</small>
-                  </center>
-                  <button className='btn btn-danger b-s my-2' onClick={handleCreate}>
-                    <strong>Create Team</strong> <i class="fa-solid fa-user-plus"></i>
-                  </button>
-                </div>
+              <div>
+                <input type="email" className="form-control" id="teamname" />
+                <center>
+                  <small id="teamname" className="form-text text-muted text-capitalize teamnam">enter your team name, it must be unique</small>
+                </center>
+                <button className='btn btn-danger b-s my-2' onClick={handleCreate}>
+                  <strong>Create Team</strong> <i class="fa-solid fa-user-plus"></i>
+                </button>
+              </div>
 
-                {/* <div>
+              {/* <div>
                   <div className="col-sm-3 upload">
                     <div className="upload-btn-wrapper">
                       <button className="btns">Team Logo or Img</button>

@@ -17,7 +17,7 @@ function Register() {
 
 
         const { name, password, email, cpassword } = credentials
-        if (name || password || email || cpassword === '') {
+        if (name === '' || password === '' || email === '' || cpassword === '') {
             alert('Fill All The Fields');
             return history("/reg");
         } else {

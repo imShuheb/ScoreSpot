@@ -74,7 +74,7 @@ const TeamListSide = () => {
 
                         <div className="row datepicker my-2" >
                             <h5>Date</h5>
-                            <input type="date" id="start" onChange={onChange} name="date" min="2022-01-01" max="2023-12-31" />
+                            <input type="date" id="start" onChange={onChange} name="date" min="2022-08-23" max="2022-10-30" />
                         </div>
 
                         <div className='row '>

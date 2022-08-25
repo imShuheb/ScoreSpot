@@ -25,8 +25,29 @@ function MyProfile() {
         console.log(currentNote.profileImg)
     }
 
+    const test = (str) => {
+        return /\d/.test(str)
+    }
+
+    const number = (str) => {
+        return /\D/.test(str)
+    }
     const handleUpdate = (e) => {
         e.preventDefault();
+
+        if (number(update.ephone)) {
+            alert('Phone number should not have alphabets')
+            return
+        }
+        if (test(update.efname) || test(update.elname)) {
+            alert('Name should not contain Numbers')
+            return
+        }
+
+        if (update.ephone.length > 10 || update.ephone.length < 10) {
+            alert('phone number must be 10 characters')
+            return
+        }
         context.editProfile(update.id, update.efname, update.elname, update.ephone, update.eaddress, update.edob, update.eprofileImg)
         alert("Profile Updated")
         history('/home')
@@ -61,7 +82,7 @@ function MyProfile() {
                                 <div className="card mb-4 mb-xl-0">
                                     <div className="card-header">Profile Picture</div>
                                     <div className="card-body text-center">
-                                        <img className=" mb-2" src={update.eprofileImg !== '' ? update.eprofileImg : 'http://bootdey.com/img/Content/avatar/avatar1.png'} alt="" style={{width:'auto',height:'250px'}}/>
+                                        <img className=" mb-2" src={update.eprofileImg !== '' ? update.eprofileImg : 'http://bootdey.com/img/Content/avatar/avatar1.png'} alt="" style={{ width: 'auto', height: '250px' }} />
                                         <input type="file" className='btn btn-danger' onChange={img} name="profileImg" />
                                     </div>
                                 </div>

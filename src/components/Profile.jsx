@@ -11,14 +11,46 @@ function Profile() {
     const handleOut = () => {
         history("/");
     }
+
+    const test = (str) => {
+        return /\d/.test(str)
+    }
+
+    const number = (str) => {
+        return /\D/.test(str)
+    }
+
+
     const num_phone = parseInt(elements.phone)
     const handleSubmite = async (e) => {
         e.preventDefault();
+        const { fname, lname, address, dob, phone } = elements
+
+        if (fname === "" || lname === "" || address === "" || dob === "" || phone === "") {
+            alert('All the boxes should be filled')
+            return
+        }
+
+        if (test(elements.fname) || test(elements.lname)) {
+            alert('Name should not contain Numbers')
+            return
+        }
+
+        if (number(elements.phone)) {
+            alert('Phone number should not have alphabets')
+            return
+        }
+
+        if (elements.phone.length > 10 || elements.phone.length < 10) {
+            alert('phone number must be 10 characters')
+            return
+        }
+
         const response = await fetch("http://localhost:5000/api/add", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token':sessionStorage.getItem('token')
+                'auth-token': sessionStorage.getItem('token')
 
             },
             body: JSON.stringify({
@@ -26,6 +58,8 @@ function Profile() {
                 dob: elements.dob, phone: num_phone, batsman: elements.batsman, bowller: elements.bowller, wicketKeeper: elements.wicketKeeper, allRounder: elements.allRounder
             })
         });
+
+
         const json = await response.json()
         if (json.success) {
             history("/home");

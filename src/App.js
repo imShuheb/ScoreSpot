@@ -12,7 +12,8 @@ import TeamList from './components/Tournment/Team/TeamList'
 import CreateTeam from './components/Tournment/create/CreateTeam'
 import Score from './components/LiveScore/Score';
 import Live from './components/LiveScore/Live';
-
+import Maps from './components/maps/Maps'
+import ScoreBoard from './components/ScoreBoard/ScoreBoard'
 
 function App() {
   return (
@@ -31,7 +32,10 @@ function App() {
               <Route path="/schedule" element={<Matches />} />
               <Route path="/startscore" element={<Score/>} />
               <Route path="/live" element={<Live/>} />
+              <Route path="/maps" element={<Maps/>} />
               <Route path="/myProfile" element={<MyProfile />} />
+              <Route path="/scoreBoard" element={<ScoreBoard />} />
+
             </Routes>
           </BrowserRouter>
         </TeamsState>

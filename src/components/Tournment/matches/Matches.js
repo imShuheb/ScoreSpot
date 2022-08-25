@@ -24,10 +24,10 @@ const Matches = () => {
 
                     <div className="container-size mt-5 scroll red-bar " style={{ marginLeft: "150px" }}>
                         <MatchList />
-                    
+
                     </div>
                     <div className="container-fulid">
-                        <img src={side} alt="-" style={{width:'450px',height:'91vh'}}/>
+                        <img src={side} alt="-" style={{ width: '450px', height: '91vh' }} />
                     </div>
                 </div>
             </>

@@ -47,8 +47,8 @@ const MatchList = () => {
                 },
                 body: JSON.stringify({ message: 'Ongoing' })
             });
-            // history('/startscore')
-            // window.location.reload(false);   
+            history('/startscore')
+            window.location.reload(false);
         } else {
             alert(err)
         }
@@ -104,6 +104,7 @@ const MatchList = () => {
                                     </div>
                                 </form>
                             </div>
+                            <h5 style={{color:'red'}}>Yet to develep</h5>
 
                         </div>
                         <div class="modal-footer">
@@ -143,7 +144,7 @@ const MatchList = () => {
                                                 <div>time : {ele.time} </div>
                                                 {Run}
                                                 {ele.status === 'Ongoing' ? '' : <a onClick={() => handlemodal(ele)} role='button' className='p-m-0'>start scoring</a>}
-                                                <a role='button' className='p-m-0'> view </a>
+                                                <a role='button' className='p-m-0' onClick={() => history('/live-server')}> view </a>
                                             </div>
                                         </div>
                                     </div>

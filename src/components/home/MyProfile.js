@@ -6,6 +6,7 @@ import profileContext from '../../context/Profile/profileContext'
 function MyProfile() {
     const [update, setUpdate] = useState({ id: "", efname: "", elname: "", ephone: "", eaddress: "", edob: "", eprofileImg: '' });
     const [type, setType] = useState('text');
+    const [img1, setimg1] = useState({ eprofileImg: '' })
 
     const history = useNavigate();
 
@@ -32,6 +33,11 @@ function MyProfile() {
     const number = (str) => {
         return /\D/.test(str)
     }
+
+    // const img = (e) => {
+    //     setimg1({ eprofileImg: e.target.files[0] })
+    // }
+
     const handleUpdate = (e) => {
         e.preventDefault();
 
@@ -39,28 +45,41 @@ function MyProfile() {
             alert('Phone number should not have alphabets')
             return
         }
+        if (update.ephone.length > 10 || update.ephone.length < 10) {
+            alert('Phone number should be 10 digits')
+            return
+        }
         if (test(update.efname) || test(update.elname)) {
             alert('Name should not contain Numbers')
             return
         }
 
-        if (update.ephone.length > 10 || update.ephone.length < 10) {
-            alert('phone number must be 10 characters')
-            return
+        if (img1.eprofileImg === '') {
+            context.editProfile1(update.id, update.efname, update.elname, update.ephone, update.eaddress, update.edob)
+            alert("Profile Updated")
+            history('/home')
+            window.location.reload(false);
+            return true;
+
+        } else {
+            context.editProfile(update.id, update.efname, update.elname, update.ephone, update.eaddress, update.edob, img1.eprofileImg)
+            alert("Profile Updated")
+            history('/home')
+            window.location.reload(false);
+            return true;
         }
-        context.editProfile(update.id, update.efname, update.elname, update.ephone, update.eaddress, update.edob, update.eprofileImg)
-        alert("Profile Updated")
-        history('/home')
-        window.location.reload(false);
     }
 
     const onChange = (e) => {
+        const re = /^[0-9\b]+$/;
+        if (!re.test(update.ephone)) {
+            alert('numbers only')
+        }
         setUpdate({ ...update, [e.target.name]: e.target.value })
     }
 
-
     const img = (e) => {
-        setUpdate({ ...update, eprofileImg: e.target.files[0] })
+        setimg1({ ...update, eprofileImg: e.target.files[0] })
     }
 
     if (!sessionStorage.getItem('token')) {
@@ -82,8 +101,22 @@ function MyProfile() {
                                 <div className="card mb-4 mb-xl-0">
                                     <div className="card-header">Profile Picture</div>
                                     <div className="card-body text-center">
-                                        <img className=" mb-2" src={update.eprofileImg !== '' ? update.eprofileImg : 'http://bootdey.com/img/Content/avatar/avatar1.png'} alt="" style={{ width: 'auto', height: '250px' }} />
-                                        <input type="file" className='btn btn-danger' onChange={img} name="profileImg" />
+                                        {/* <img className=" mb-2" src={update.eprofileImg !== '' ? update.eprofileImg : 'http://bootdey.com/img/Content/avatar/avatar1.png'} alt="" style={{ width: 'auto', height: '250px' }} />
+                                        <input type="file" className='btn btn-danger' onChange={img} name="profileImg" /> */}
+                                        <div className="d-flex justify-content-center">
+
+                                            <label htmlFor="imageup">
+                                                <div className="col-lg-9">
+                                                    <img className=" mb-2" src={update.eprofileImg !== '' ? update.eprofileImg : ''} alt="" style={{ width: 'auto', height: '200px', borderRadius: '10px', border: '5px solid black', }} />
+                                                </div>
+                                                <div className="col-sm-12">
+
+                                                    <input type="file" style={{ display: 'none', visibility: 'none' }} className='' onChange={img} name="profileImg" placeholder='image' id='imageup' />
+                                                    <i className='fa-solid fa-file-image fa-3x m-3' id='imageupicon'>
+                                                        <h6 className='m-3'>Click To Upload! </h6></i>
+                                                </div>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -127,11 +160,11 @@ function MyProfile() {
                                             </div>
 
                                             <div className="d-flex justify-content-center pb-2">
-                                                <button className="btn btn-danger my-4  btn-submit fw-bold text-uppercase" onClick={handleUpdate} type="submit">Save Changes</button>
+                                                <button style={{width:'55vw'}} className="btn btn-danger my-4  btn-submit fw-bold text-uppercase" onClick={handleUpdate} type="submit">Save Changes</button>
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div>  
                             </div>
                         </div>
                     </div>

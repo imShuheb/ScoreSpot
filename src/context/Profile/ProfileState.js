@@ -46,17 +46,30 @@ const UserState = (props) => {
             console.log(res)
         })
     }
+    const editProfile1 = async (id, fname, lname, phone, address, dob) => {
+        // API Call 
+        const response = await fetch(`${host}/api/updateprofiledata/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': sessionStorage.getItem('token'),
+            },
+            body: JSON.stringify({ fname, lname, phone, address, dob })
+        });
+        const pdata = await response.json();
+        console.log(pdata)
+
+    }
 
 
     useEffect(() => {
         Profile();
-        // eslint-disable-next-line
-
+        // eslint-disable-next-line 
     })
 
 
     return (
-        <ProfileContext.Provider value={{ data, udata, Profile, editProfile }}>
+        <ProfileContext.Provider value={{ data, udata, Profile, editProfile, editProfile1 }}>
             {props.children}
         </ProfileContext.Provider>
     )

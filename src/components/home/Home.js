@@ -52,7 +52,7 @@ function Home() {
                         <>
                           <div className="col-sm-6" key={ele._id}>
                             <div className="card bg-light mb-3 " style={{ maxWidth: "25rem" }}>
-                              <div className="card-header text-uppercase align-item-center"> {ele.ground} <span class="badge btn-warning">{ele.status}</span></div>
+                              <div className="card-header text-uppercase align-item-center"> {ele.ground} <span class={`badge bg-${ele.status === 'Completed' ? 'success' : 'warning'}`}>{ele.status}</span></div>
                               <div className="card-body text-center">
                                 <h5 className="card-title text-uppercase">{ele.team1[0].name}</h5>vs
                                 <h5 className="card-title  text-uppercase mt-2">{ele.team2[0].name}</h5>

@@ -100,13 +100,37 @@ router.put('/updateprofile/:id', upload.single('profileImg'), fetchuser, async (
         if (address) { newProfile.address = address };
         newProfile.profileImg = imgpath
 
-
         // Find the note to be updated and update it
         const id = req.params.id;
         let profile = await Profile.findById(id);
 
         profile = await Profile.findByIdAndUpdate(id, { $set: newProfile }, { new: true })
         res.json({ profile })
+
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+router.put('/updateprofiledata/:id', fetchuser, async (req, res) => {
+    const { fname, lname, phone, dob, address } = req.body;
+    console.log(fname, lname, phone, dob, address)
+    try {
+        // Create a newprofile object
+        const newProfile = {};
+        if (fname) { newProfile.fname = fname };
+        if (lname) { newProfile.lname = lname };
+        if (phone) { newProfile.phone = phone };
+        if (dob) { newProfile.dob = dob };
+        if (address) { newProfile.address = address };
+
+        // Find the note to be updated and update it
+        const id = req.params.id;
+        let profile = await Profile.findById(id);
+
+        profile = await Profile.findByIdAndUpdate(id, { $set: newProfile }, { new: true })
+        res.status(200).json({ profile })
 
     } catch (error) {
         console.error(error.message);

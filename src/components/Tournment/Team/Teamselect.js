@@ -6,7 +6,7 @@ const Teamselect = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [repeat, setRepeat] = useState('')
   const data = context.teams;
-
+  const teams = context.save
   const write = () => {
     document.write("Refresh Page")
   }
@@ -14,14 +14,18 @@ const Teamselect = () => {
   const handleSide = (event, mess, name) => {
     const iteams = { mess, name }
     if (context.save.length > 1) {
-      return alert("2 Teams are already selected")
-    } else {
-      if (context.save.includes(mess)) {
-        return alert("Teams already exists")
-      } else {
-        context.setSave([...context.save, iteams])
-      }
+      alert("2 Teams are already selected")
+      return
     }
+
+    if (teams.includes(mess)) {
+      alert("Teams already exists")
+      return
+    }
+
+    context.setSave([...context.save, iteams])
+
+
   }
 
   const handle = (event, value) => {

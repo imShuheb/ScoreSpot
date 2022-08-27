@@ -31,7 +31,7 @@ function App() {
               <Route path="/teams" element={<TeamList/>} />
               <Route path="/schedule" element={<Matches />} />
               <Route path="/startscore" element={<Score/>} />
-              <Route path="/live" element={<Live/>} />
+              <Route path="/live-server" element={<Live/>} />
               <Route path="/maps" element={<Maps/>} />
               <Route path="/myProfile" element={<MyProfile />} />
               <Route path="/scoreBoard" element={<ScoreBoard />} />

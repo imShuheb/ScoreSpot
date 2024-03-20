@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './css/style.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/js/dist/modal'
+import 'bootstrap/js/dist/popover'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

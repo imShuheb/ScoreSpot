@@ -1,11 +1,10 @@
-import React , { useContext }from 'react'
+import React from 'react'
 import img from '../images/background.jpg'
 import '../css/style.css'
-import profileContext from '../context/Profile/profileContext'
 // import Newsitem from './Newsitem'
 
 export default function Container() {
-    const context = useContext(profileContext)
+
     return (
         <div className='container-fulid gy-0 py-5 my-2' id='roll-back'> 
             <div className="container-fluid p-0 wow fadeIn " data-wow-delay="0.1s">
@@ -17,7 +16,7 @@ export default function Container() {
                                 <div className="container">
                                     <div className="row justify-content-center">
                                         <div className="col-lg-7">
-                                             <h1 className="display-2 text-light mb-5 animated slideInDown"><p className=''> Get Your Scores Here {context.user} </p></h1>
+                                             <h1 className="display-2 text-light mb-5 animated slideInDown"><p className=''> Get Your Scores Here </p></h1>
                                         </div>
                                     </div>
                                 </div>

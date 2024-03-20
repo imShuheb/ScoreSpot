@@ -37,6 +37,10 @@ const ProfileSchem = new Schema({
     allRounder: {
         type: String
     },
+    profileImg: {
+        type: String,
+        default: 'null'
+    },
     date: {
         type: Date,
         default: Date.now
